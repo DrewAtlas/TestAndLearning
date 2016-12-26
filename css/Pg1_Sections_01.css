@@ -1,0 +1,544 @@
+﻿/* Pg1_Sections_01.css 
+	Purpose:	These styles are only used on page 1 of food services. Several sections are in here
+				and I didn't want to keep making the first file huge with more styles, so I separated them out
+*/
+/* Announcements section are right underneath the hero/parallax */
+
+#announceTop  {
+	font-family: "Arial";	
+	color: rgb(95, 106, 114);
+	text-align: center;
+	background-repeat: no-repeat;
+	z-index: 80;
+	position: relative;
+	top: 600px;
+	width: 1280px; /* w/o this width specified, it didn't have one */
+	height: 240px;	/* w/o a height, the next element overwrites this div
+			the problem is that the height needs to depend on whether there is text there or not
+		so I will have to adjust this programmatically?
+	*/
+}
+
+#announceCityId {
+	font-size: 36px;
+	text-align:center;
+	height: 50px;
+	font-weight: bold;
+	position: relative;
+	top: 10px;
+}
+
+div#announceTextId {
+	font-size: 14px;
+	text-align: center;
+	margin: 20px 200px 20px 200px;
+	position: relative;
+	top: 10px;
+}
+
+div#announceViewMore {
+	font-size: 14px;
+	background-color: rgb(120, 182, 51);
+	color: white;
+	letter-spacing: 2px;
+	line-height: 0.857;
+	text-align: center;
+	border-radius: 5px;
+	margin: auto;			/* This centers the div button */
+	width: 120px;
+	height: 36px;
+	position:relative;
+	top: 25px;
+	padding-top: 12px;		/* This makes the text center in the box */
+}
+
+/* DCMP Section */
+#DCMP { /* Enclosing div on this section, putting common items here */
+	position: relative;
+	top: 600px;
+	width: 1280px; /* w/o this width specified, it didn't have one */
+	font-family: "Arial";
+	font-size: 14px;
+	background-color: white;
+	text-align: center;
+	z-index: 100;
+	height:800px;	/* This will have to be adjusted depending on the content */
+}
+
+#CafeAccordion {
+}
+
+.dcmp_row {
+	position: relative;
+	top: 15px;
+}
+
+/* Common to all DCMP section icons */
+.dcmp_iconDining, .dcmp_iconCatering, .dcmp_iconEvents {
+    width: 175px;
+    height: 175px;
+}
+
+dcmp_iconDining	{
+    left: 154px;
+}
+
+.dcmp_iconCatering {
+    left: 554px;
+}
+
+.dcmp_iconEvents {
+    left: 954px;
+}
+
+div.dcmp_InfoHdr { /* Common text characteristics for all 3 column headers */
+	font-size: 32px;
+	color: rgb(120, 182, 51);		/* Green header */
+	font-weight: bold;
+	line-height: 0.844;
+}
+
+div.dcmp_InfoText { /* Common to all columns text blurbs */
+	color: rgb(95, 106, 114); /* Darker text*/
+	font-size: 14px;
+	font-weight: normal;
+}
+
+#dcpm_DiningHdr {
+	left: 100px;
+	width: 264px;
+	height: 133px;
+}
+
+#dcpm_CateringHdr {
+	left: 500px;
+	width: 245px;
+	height: 133px;
+}
+
+#dcpm_PromosHdr {
+	left: 900px;
+	width: 267px;
+	height: 107px;
+}
+
+.dcpm_accordionButs {
+	position: relative;
+	top: 15px;
+	left: 10px;
+	z-index: 120;
+	background-color: rgb(120, 182, 51);
+	color: white;
+	width: 320px;
+	height: 42px;
+	border-radius: 5px;
+	text-align: left;
+	padding: 10px;
+	font-weight: bold;
+}
+
+/* We don't want to see the button representation, because we're using the down arrow caret*/
+.dcpm_NoBut {
+	visibility: hidden;
+}
+
+.dcpm_accordion {
+}
+
+.dcpm_caret {
+	position: absolute;
+	right: 20px;
+	top: 8px;
+	z-index: 130;
+	width: 25px;
+	height: 25px;
+	visibility: visible;
+}
+
+.dcpm_cafes {
+    position:relative;
+	top: 20px;
+}
+
+.dcpm_accordPanels{
+	width: 320px;
+	height: 42px;
+}
+
+#dcpm_DiningText {
+}
+
+#dcpm_CateringText {
+}
+
+#dcpm_PromosText {
+}
+
+
+	/* Contacts Section starts 2039 in comp*/
+#contactsBg {
+	position: relative;
+	top: 600px;
+	width: 1280px;
+	height: 250px;
+	left: 0px;
+	background-color: rgb(246, 246, 246);
+	box-shadow: inset 0px -1px 0px 0px rgba(0, 0, 0, 0.04);
+	z-index: 100;
+	line-height: 2;
+	font-family: "Arial";
+	color: rgb(94, 106, 114);
+	font-size: 16px;
+	text-align: center;
+}
+
+	#contactsTitle { /* y=2094 title is 36pt bold */
+		font-size: 36px;
+		font-weight: bold;
+		top: 10px;
+		position: relative;
+	}
+
+	/*  Questions? (2131) is 16pt, regular, same as title */
+	#contactsQuestions {
+		position: relative;
+	}
+
+	#contacts3Col {
+		text-align: left;
+		left: 100px;
+		line-height: 1.143;
+		font-weight: bold;
+		margin-left:100px;
+		position: relative;
+	}
+
+	/* title of contact - green  y=2174  below it was 2194 before I changed it to 135*/
+	.contactsPeopleTitle {
+		font-size: 21px;
+		color: rgb(120, 182, 51); /* the green bold 21pt */
+		top: 135px;
+	}
+
+	/* title line  (2201) */
+	.contactsPplDept {
+		font-size: 21px;
+		top: 162px;
+		font-weight: normal;
+	}
+
+	/* phone number (2226) */
+	.contactsPhone {
+		font-size: 21px;
+		font-weight: bold;
+		top: 187px;
+	}
+
+	/* General section class setup */
+	.fsSection {
+		position: relative;
+		top: 600px;
+		width: 1280px;
+		left: 0px;
+		z-index: 100;
+		font-family: "Arial";
+		font-size: 14px;
+		font-weight: normal;
+	}
+
+	/* General Row setup when we're using bootstrap columns */
+		.fsRow  {
+		margin-left: 150px;
+		margin-right: 100px;
+		position: relative;
+	}
+
+/* Well-Being Section */
+	#wbSection {
+		height: 300px;
+		color: white;
+		background-image: url("../img/WellBeingBkgnd.png");
+		background-color: transparent;
+	}
+
+	#wbLeftCol {
+		font-family: "Arial Narrow";
+	}
+
+	#wbLeftTitle {
+		font-size: 75px;
+		line-height: .8;
+		position: relative;
+		top: 40px;
+	}
+
+	#wbLeftSlogan {
+		font-size: 24px;
+		position: relative;
+		top: 40px;
+	}
+
+	#wbRightTitle {
+		color: rgb(120,182,51);
+		font-weight: bold;
+		font-size: 36px;
+	}
+
+	#wbRightText {
+		font-size: 14px;
+		line-height: 1.5;
+	}
+
+	.wb3ColButs {
+		top: 20px;
+		position: relative;
+		background-color: rgb(120, 182, 51); /* Green buttons in well being section*/
+		border-radius: 5px;
+		text-align: center;
+		font-weight: bold;
+		height: 40px;
+		padding-top: 10px;
+	}
+	
+/* Recycling Section is most similar to the Well Being one, so I'm putting the css here  */
+	#cycleSection {
+		height: 300px;
+		color: white;
+		background-color: rgb(0,150,219);
+	}
+
+	#cycleLeftTitle {
+		font-size: 40px;
+		position: relative;
+		font-family: 'Arial Narrow';
+		top: 45px;
+	}
+
+	#cycleLeftList {
+		font-size: 18px;
+		position: relative;
+		color:white;
+		top: 60px;
+		line-height: 1.2;
+	}
+
+		#cycleLeftList li {		/* For the li elements in this named div, change to this */
+			line-height: 1.2;
+			color: white;
+		}
+
+	.cycleLeft2Buts {
+		top: 85px;
+		position: relative;
+		background-color: rgb(120, 182, 51); /* Green buttons in well being section*/
+		border-radius: 5px;
+		text-align: center;
+		font-weight: bold;
+		height: 40px;
+		width: 150px;
+		padding-top: 10px;
+	}
+
+#cycleRightArrows {
+	position: absolute;
+	right:30px;
+}
+
+	/* Common to both Payroll and Eurest sections are these */
+#payBkgnd, #eurBkgnd, #ccBkgnd {
+    position: relative;
+    top: 600px;
+    width: 1280px;
+    left: 0px;
+    z-index: 100;
+    background-color: transparent;
+    font-family: "Arial";
+    font-size: 16px;
+    font-weight: normal;
+    text-align: center;
+}
+
+	#payTtl, #eurTtl {
+		position: relative;
+		top: 30px;
+		font-weight: bold;
+		font-size: 36px;
+	}
+
+	#payText, #eurText {
+		position: relative;
+		top: 30px;
+		margin: 20px 250px 30px 250px;
+	}
+
+	/* Payroll Section */
+	#payBkgnd {
+		background-image: url("../img/PayrollBkgnd.png");
+		height: 300px;
+		color: white;
+	}
+	#payViewMore {
+		position: relative;
+		top: 20px;
+		color: rgb(120,182,51);
+		border-radius: 5px;
+		background-color: rgb(255, 255, 255);
+		width: 112px;
+		height: 36px;
+		padding-top: 10px;
+		font-weight: bold;
+		margin: auto;
+	}
+
+	/* Eurest Section */
+	#eurBkgnd {
+		background-image: url("../img/EurestBkgnd.png");
+		height: 410px;
+		color: rgb(94,106,114);
+	}
+
+	#eurTokenOrder {
+		position: relative;
+		top: 20px;
+		color: white;
+		border-radius: 5px;
+		background-color: rgb(120, 182, 51);
+		width: 150px;
+		height: 36px;
+		padding-top: 10px;
+		font-weight: bold;
+		margin: auto;
+		font-size:15px;
+	}
+
+/* Creditcard Section */
+	#ccBkgnd {
+		height: 170px;
+		color: rgb(94,106,114);
+		background-color: white;
+	}
+
+	#ccTitle {
+		position: relative;
+		top: 20px;
+		font-weight: bold;
+		font-size: 36px;
+		text-align: center;
+	}
+
+	#ccText {
+		position: relative;
+		top: 15px;
+		font-size: 16px;
+		text-align: center;
+	}
+
+	#ccPicture {
+		position: relative;
+		top: 20px;
+		background-image: url("../img/CreditCards.png");
+		background-repeat:no-repeat;
+		width: 448px;
+		height: 32px;
+		margin:auto;
+	}
+
+
+/* Footer Section - Note the footer starts at 1010 in the 'short comp', so any coords derived from
+	the photoshop CSS have already taken that into account */
+#footerBkgnd {
+    position: relative;
+    top: 600px;
+    width: 1280px;
+    height: 261px;
+    left: 0px;
+    z-index: 100;
+    background-color: rgb(95, 106, 114);
+    font-family: "Arial";
+    color: rgb(255, 255, 255);
+    font-size: 12px;
+    line-height: 2;
+    text-align: left;
+}
+
+	#footerFsLogo {
+		position:absolute;
+		left: 52px;
+		top: 56px;
+	}
+
+	/* Position of the Boeing Copyright message in the LL corner */
+	#footerBoeingTag {
+		font-size: 14px;
+		font-family: "Arial";
+		color: white;
+		position: absolute;
+		left: 52px;
+		top: 214px;
+	}
+
+	#footerLeftDivider, #footerRightDivider {
+		background-color: rgb(255, 255, 255);
+		position: absolute;
+		top: 51px;
+		width: 2px;
+		height: 161px;
+	}
+
+	/* Both these dividers are part of the middle column, so we are going to position relative to that*/
+	#footerLeftDivider {
+		left: 2px;
+	}
+
+	#footerRightDivider {
+		right: 2px;
+	}
+
+	#footerPageLinks, #footerOtherLinks {
+		position:absolute;
+		top: 49px;
+	}
+
+	#footerPageLinks {
+		left: 30px;
+		width:150px;
+	}
+
+	#footerOtherLinks {
+		right: 30px;
+		width: 90px;
+	}
+	
+	#footerFeedbackBut {
+		background-color: rgb(120, 182, 51);
+		position: absolute;
+		border-radius: 5px;
+		left: 66px;
+		top: 52px;
+		width: 150px;
+		height: 36px;
+		color: white;
+		font-size: 14px;
+		font-weight: bold;
+		line-height: 1.929;
+		text-align: center;
+	}
+
+	#footerFeedbackText {
+		position: absolute;
+		left: 20px;
+		text-align: center;
+		width: 225px;
+		top: 120px;
+		line-height: 1.5;
+		font-size: 14px;
+	}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,272 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>Everett Page Demo</title>
+
+	<!-- Bootstrap Responsive meta tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- Skip Minified JQ for now
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	-->
+	<script src="../Scripts/jquery-3.1.1.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- My own libraries and styles -->
+	<script src="../js/SetupProjGlobals.js"></script>
+    <script src="../js/CommonFuncs.js"></script>
+	<script src="../js/Parallax.js"></script>
+	<script src="../js/FoodServicesDBAccess.js"></script>
+	<script src="../js/pg1_Scripts.js"></script>
+	<script src="../js/dcpmSection.js"></script>
+	
+	<link rel="stylesheet" href="../css/Everett.css">
+	<link rel="stylesheet" href="../css/Pg1_Sections_01.css">
+
+	<!-- Set all global variables here - each on in its own meta line -->
+	<!-- Set the offset for the hero background so the parallax places it correctly -->
+	<meta name="parallaxYOffset" content="0" />
+
+</head>
+
+<body class="container">
+	<!-- Begin Navbar/header -->
+	<div class="header">
+		<img src="../img/Nav_Bar.png" />
+		<div class="boeingLogo"><img src="../img/BoeingNavBarLogo.png" /></div>
+		<div class="navSearch">
+			<div class="navSearchbox"></div>
+			<div class="navSearchIcon"><img src="../img/SearchBtnIcon.png" /></div>
+		</div>
+		<div class="categories">
+			<div class="catHome"><a href="../pages/home.html">Home</a></div>
+			<div class="catFeedback"><a href="../pages/home.html">Feedback</a></div>
+		</div>
+	</div>
+	<!-- End Navbar/header -->
+	<!-- Begin Hero/Parallax -->
+	<div class="heroframe parallax heroImg">
+		<div class="foodLogo"><img src="../img//Food_Services_logo.png" /></div>
+		<div class="btn-group">
+			<div class="dropdown locStatePick">
+				<button id="stateBut" class="btn dropdown-toggle" data-toggle="dropdown">
+					Pick State
+					<span class="searchCaret"><img src="../img/SearchCaret.png" /></span>
+				</button>
+				<ul id="JqFillInStatePulldown" role="menu" class="dropdown-menu">
+					<!--The State list to be filled in by JQUery-->
+				</ul>
+			</div>
+
+			<div class="dropdown locCityPick">
+				<button id="cityBut" data-toggle="dropdown" class="btn dropdown-toggle ">
+					Pick City
+					<span class="searchCaret"><img src="../img/SearchCaret.png" /></span>
+					<!--This list is the collapsible part -->
+				</button>
+				<ul id="JqFillInCityPulldown" class="dropdown-menu">
+					<!--The City list to be filled in by JQUery-->
+				</ul>
+			</div>
+
+			<div>
+				<button id="searchBut" class="locAllButs locSearchBut">Search Location</button>
+			</div>
+		</div>
+	</div>
+	<!-- End Hero/Parallax -->
+	<!-- Begin Announcements Section -->
+	<div id="announceTop">
+		<div id="announceCityId"></div>
+		<div id="announceTextId"></div>
+		<div id="announceViewMore"><a href="www.google.com">View More</a></div>
+	</div>
+	<!-- End Announcements Section -->
+
+	<!-- Begin DCMP Section -->
+	<div id="DCMP">
+      <div class="row dcmp_row">
+        <div class="col-md-4 ">
+			<div class="dcmp_iconDining">
+				<img class="center-block" src="../img/DiningIcon.png">
+			</div>
+			<div class="dcmp_InfoHdr">Dining</div>
+			<div class="dcmp_InfoText">This is a lot more about dining that we can't even tell you enough about this great stuff that we are going to stuff in you
+			</div>
+
+			<!-- this div is the master visible element under which we will pop up a set of accordion buttons, each of which has an embedded description -->
+			<div class="dcpm_accordionButs">Cafe
+				<button class="dcpm_NoBut " data-toggle="collapse" data-target="#accordion">
+					<span class="dcpm_caret"><img src="../img/AccordianDownBut.png" /></span>
+				</button>
+			</div>
+			<!-- Start the Cafe Accordion -->
+			<div id="cafeAccordionJqFill"></div>
+			<!-- Ends the Cafe Accordion -->
+
+		</div>
+        <div class="col-md-4">
+			<div class="dcmp_iconCatering">
+				<img class="center-block" src="../img/Cateringicon.png">
+			</div>
+			<div class="dcmp_InfoHdr">Catering</div>
+			<div class="dcmp_InfoText">This is a lot more about Catering that we can't even tell you enough about this great stuff that we are going to stuff in you
+			</div>
+
+		</div>
+        <div class="col-md-4">
+			<div class="dcmp_iconEvents">
+				<img class="center-block" src="../img/MonthlyPromosIcon.png">
+			</div>
+			<div class="dcmp_InfoHdr">Promos</div>
+			<div class="dcmp_InfoText">This is a lot more about Promos that we can't even tell you enough about this great stuff that we are going to stuff in you
+			</div>
+
+		</div>
+      </div>		<!-- Ends div class="row" -->
+	</div>
+	<!-- End DCMP Section -->
+
+	<!-- Begin Contacts Section -->
+	<div id="contactsBg">
+		<div id="contactsTitle">Cafe Contacts</div>
+		<div id="contactsQuestions">Questions? Please go fuck our contact focals<br/><br/></div>
+		<div id="contacts3Col">
+		  <div class="row">
+			<div class="col-md-4 ">
+				<div class="contactsPeopleTitle">Catering and Management</div>
+				<div class="contactsPplDept">Catering Outfit</div>
+				<div class="contactsPhone">(425) 223-1111</div>
+			</div>
+			<div class="col-md-4">
+				<div class="contactsPeopleTitle">District Manager</div>
+				<div class="contactsPplDept">District Manager Dept</div>
+				<div class="contactsPhone">(425) 232-3333</div>
+			</div>
+			<div class="col-md-4">
+				<div class="contactsPeopleTitle">Services Manager</div>
+				<div class="contactsPplDept">Boeing Food Services</div>
+				<div class="contactsPhone">(425) 232-5555</div>
+			</div>
+		  </div>		<!-- Ends div class="row" -->
+		</div>	
+	</div>
+	<!-- End Contacts Section -->
+
+	<!-- Begin Well-Being Section -->
+	<div id="wbSection" class="fsSection">
+		<div class="row fsRow">
+			<div class="col-md-6" id="wbLeftCol">
+				<div id="wbLeftTitle">Well Being</div>
+				<div id="wbLeftSlogan">Choose well. Live well.</div>
+			</div>
+			<div class="col-md-6">
+				<div id="wbRightTitle">Healthy Eating</div>
+				<div id="wbRightText">Healthy eating is one of the best things we can do for our health and well-being. Use these materials to help promote healthy eating at your worksite and/or within Boeing-managed cafes.</div>
+				<div id="wb3ColButs">
+					<div class="row">
+						<div class="col-md-4">
+							<div class="wb3ColButs">Resource Center</div>
+						</div>
+						<div class="col-md-4">
+							<div class="wb3ColButs">Meal Tracker</div>
+						</div>
+						<div class="col-md-4">
+							<div class="wb3ColButs">Nutritional Guide</div>
+						</div>
+					</div>
+					<!-- Ends inner row -->
+				</div>
+			</div>
+			<!-- Ends 2nd column -->
+		</div>
+		<!-- Ends 2-column row -->
+	</div>
+	<!-- End Well-Being Section -->
+
+	<!-- Begin Payroll Section -->
+	<div id="payBkgnd">
+		<div id="payTtl">Sign up for payroll deduction</div>
+		<div id="payText">The Payroll Deduction feature allows use of your Boeing Employee Smart badge for food and beverage purchases at participating Aramark or Compass/ Eurest-Thompson Boeing cafes and also at Tully's Coffee stores located on Boeing property. </div>
+		<div id="payViewMore">View More</div>
+	</div>
+	<!-- End Payroll Section -->
+	<!-- Begin Loyalty Section -->
+	<div id="eurBkgnd">
+		<div id="eurTtl">Eurest Token Program</div>
+		<div id="eurText">
+			Eurest food tokens are available through Food Services channels. They come in increments of $2, $3, $5 and "Ice Cream product", and are treated as gift cards for purchase price at Boeing cafes.<br /><br />
+			Available through Boeing's Food Service Caterer, Eurest/Thompson Dining Services, managers often give tokens to employees as a form of recognition.<br /><br />
+			Tokens can be purchased by completing the form available below and returning it via email to the address indicated on the form. If you are unsure of the appropriate chargeline to use, please contact your Cost Policy focal.
+		</div>
+		<div id="eurTokenOrder">Token Order Form</div>
+	</div>
+	<!-- End Loyalty/Eurest Section -->
+	<!-- Begin Recycling  Section -->
+		<div id="cycleSection" class="fsSection">
+		<div class="row fsRow">
+			<div class="col-md-6">
+				<div id="cycleLeftTitle">Boeing is Recycling</div>
+				<div id="cycleLeftList">
+					<ul>
+						<li>Reduce food waste?</li>
+						<li>Eliminate Styrofoam?</li>
+						<li>Compostable coffee cups?</li>
+					</ul>
+					Learn more about how Boeing is working to help the planet
+				</div>
+				<div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="cycleLeft2Buts">Green Program</div>
+						</div>
+						<div class="col-md-6">
+							<div class="cycleLeft2Buts">Training Guide</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6" id="cycleRightArrows">
+				<img src="../img/RecycleArrows.png"/>
+			</div>
+			<!-- Ends 2nd column -->
+		</div>
+		<!-- Ends 2-column row -->
+	</div>
+
+	
+	<!-- End Recycling  Section -->
+	<!-- Begin Creditcard Section -->
+		<div id="ccBkgnd" class="fsSection">
+		<div id="ccTitle">Now Accepting</div>
+		<div id="ccText">
+			Now accepting Visa, Mastercard, American Express, Discover & Debit Cards 
+		</div>
+			<div id="ccPicture"></div>
+	</div>
+	<!-- End Creditcard Section -->
+
+	<!-- Begin Footer Section -->
+	<div id="footerBkgnd">
+      <div class="row">
+        <div class="col-md-4 ">
+			<div id="footerFsLogo">
+				<img class="center-block" src="../img/FS_Logo_Footer.png">
+			</div>
+			<div id="footerBoeingTag">Copyright (C) 1995-2017 Boeing. All Rights Reserved</div>
+		</div>
+        <div class="col-md-4">
+			<div id="footerLeftDivider"></div>
+			<div id="footerPageLinks">Page Links:<br/>Something1<br/>Something2<br/>Something3</div>
+			<div id="footerOtherLinks">OTHER LINKS<br/>Content Owner<br/>Website Issues</div>
+			<div id="footerRightDivider"></div>
+		</div>
+        <div class="col-md-4">
+			<div id="footerFeedbackBut">Feedback Form</div>
+			<div id="footerFeedbackText">To help serve you better,<br/>Please go fuck youself!</div>
+		</div>
+      </div>		<!-- Ends div class="row" -->
+	</div>	
+	<!-- End Footer Section -->
+</body>
+</html>
