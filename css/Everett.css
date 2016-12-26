@@ -1,0 +1,194 @@
+﻿        
+/* Everett.css 
+	Purpose:	These styles are only used on the Everett page. Styles that transcend
+				more than one page should move to the global.css file
+*/
+
+/* To setup for a responsive design, we have a container which uses 100% of the current window
+	width. From there all children use min and max widths with margins to keep themselves
+	positioned relatively well
+*/
+   .container {
+		width: 100%;
+	  /* Get rid of height later - its determined automatically by the elements present */
+		height:3500px;
+		margin:auto;	/* w/o setting this, an 8-pixel margin is default */
+  }
+
+   /* Example Mediq query */
+   @media screen and (max-width: 1000px) {
+      .nebula {
+         width: 100%;
+         overflow: hidden;
+         margin: 0 -150px 0 -150px;
+      }
+   }
+
+	.header {
+		position:absolute;
+		height: 75px;
+		width:1280px;
+		left:0;
+		top:0;
+		z-index: 100;
+	}
+
+	/* This is the parent for the nav bar search box and icon, set the position responsively
+		so that it is always 20px away from the right hand side
+	*/
+.navSearch {
+	position:absolute;
+	right: 20px;
+	top: 21px;
+	width: 183px;
+	height: 35px;
+	z-index: 200;
+}
+
+.navSearchbox {
+	border-style: solid;
+	border-width: 1px;
+	border-color: rgb(0, 0, 0);
+	background-color: rgb(255, 255, 255);
+	position: absolute;
+	width: 183px;
+	height: 35px;
+	z-index: 200;
+}
+
+.navSearchIcon {
+	box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.2);
+	position: absolute;
+	width: 14px;
+	height: 12px;
+	z-index: 200;
+}
+
+.boeingLogo {
+  position: absolute;
+  left: 31px;
+  top: 33px;
+  z-index: 200;
+}
+
+.categories {			/* Text buttons in the nav bar */
+  font-size: 18px;
+  font-family: "Arial";
+  font-weight: bold;
+  text-align: left;
+  position: absolute;
+  z-index: 200;
+  top: 32px;
+  right: 400px;
+}
+
+a {			/* Make sure that the text buts on the nav do not have underline */
+	color: rgb(255, 255, 255);
+	text-decoration: none;
+}
+
+.catHome {
+  position: absolute;
+  left:0px;
+}
+
+.catFeedback {
+  position: absolute;
+  left: 4em;	/* Position this after "Home" */
+}
+
+.foodLogo {				/* "Food Services" logo on top of hero, scrolls with page */
+	width:  383px;
+	height: 238px;
+	margin: auto;		/* auto centers it horizontally */
+	margin-top: 181px;
+}
+
+	.heroframe {
+		background-color: transparent;
+		background-repeat:no-repeat;
+		position:absolute;
+		top: 0px;
+		width:  1280px;		/* w/o this width specified, it didn't have one */
+		height: 600px;
+		left:0px;			/* if we don't do this there is a 5px gap on the left*/
+	}
+
+	.parallax {
+		background-position: 0 0;
+	}
+
+	.heroImg {
+		background-image:  url("../img/Hero900.png");
+	}
+
+	/* In the hero image are two inputs to get the State and City (locState, locCity below)
+		build up their styles by starting most off with the width/height, then build up the
+		styles that are needed until we end up with just individual settings like left
+		where we are only defining elements in one style instead of a list where we start off
+	*/
+    .locStatePick, .locCityPick, .locSearchBut, .btn, li {
+		width: 248px;
+		height: 48px;
+		font-size: 16px;
+		font-family: "Arial";
+		letter-spacing: 2px;
+		color: rgb(95, 106, 114);
+		line-height: 0.75;
+        z-index: 250;
+		text-align: left;
+    }
+
+    .locStatePick, .locCityPick, .locSearchBut {
+        border-radius: 3px;
+        border-style: solid;
+        border-width: 1px;
+        position: absolute;
+        top: 87px;
+        box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+    }
+
+    .locStatePick, .locCityPick {
+        background-color: white;
+        color: darkblue;
+        border-color: rgb(221, 228, 233);
+    }
+
+    .locStatePick {
+        left: 100px;
+    }
+
+    .locCityPick {
+        left: 400px;
+    }
+
+    .btn {
+        background-color:white;
+        position:relative;
+    }
+
+	li {		/* Adjust how the dropdown menus are a little different than the button text */
+		font-size: 14px;
+		height:auto;
+	}
+
+    .locSearchBut {
+		left: 700px;
+		background-color: rgb(120, 182, 51);
+		color: white;
+		font-size: 14px;
+		text-transform:uppercase;
+		letter-spacing: 2px;
+		line-height: 0.857;
+		text-align: center;
+    }
+
+    .searchCaret {
+        position: absolute;
+        right: 5px;
+        top: auto;
+        width: 14px;
+        height: 8px;
+        z-index: 300;
+    }
+
