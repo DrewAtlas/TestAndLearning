@@ -121,7 +121,7 @@ function SetupDiningColumn(city) {
 	// Fill in the HTML to other buts
 	otherButs = '<div>';
 	otherButs += AddDcmpBut("Tully's Coffee", "Tullys.html");
-	otherButs += AddDcmpBut("Avenue C", "AveC.html");
+	otherButs += AddDcmpBut("Avenue C", "AvenueC.html");
 	otherButs += '</div>';
 	$("#JqFillDiningCol").html(onePanelHtml + otherButs);
 }
