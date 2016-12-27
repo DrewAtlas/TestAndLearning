@@ -66,7 +66,7 @@ function CreateAccordionFromJson(jsonDef) {
 	panGrpId	Contains the ID of the top level <div> containing the panel-group
 	heading		The ID of the panel heading element, its referenced by the collapsed description-containing div
 	collapse	The id of the panel-collapse element that is collapsed or expanded to show the additional detail of this panel
-	panelLabe	The label of the visible panel we see when it is collapsed, e.g. Cafe 33-22
+	panelLabel	The label of the visible panel we see when it is collapsed, e.g. Cafe 33-22
 	panelContent	What we see when the panel is expanded, this includes line breaks as needed. e.g. This is a description of this particular cafe<br /> blah blah blah <br />
 */
 function CreateOneAccordion( panGrpId, heading, collapse, panelLabel, panelContent)
@@ -76,7 +76,7 @@ function CreateOneAccordion( panGrpId, heading, collapse, panelLabel, panelConte
 	'<div class="panel panel-default">\
 		<div class="panel-heading dcpm_accordPanels" role="tab" id="' + heading + '">\
 			<h4 class="panel-title">\
-				<a class="collapsed" data-toggle="collapse" data-parent="#' + panGrpId + '" href="#' + collapse + '" aria-expanded="false" aria-controls="' + collapse + '">'
+				<a class="collapsed" data-toggle="collapse" data-parent="#' + panGrpId + '" href="#' + collapse + '" aria-expanded="false" aria-controls="#' + collapse + '">'
 					+ panelLabel
 				+ '</a>\
 			</h4>\
@@ -92,22 +92,68 @@ function CreateOneAccordion( panGrpId, heading, collapse, panelLabel, panelConte
 }
 
 // Create the top level <div> for an accordian panel group. Use this once and then fill in with many calls to CreateOneAccordion()
-function AccordionPanelHeader( panGrpId )
+function AccordionPanelHeader( label, panGrpId )
 {
-	return '<div class="panel-group dcpm_cafes" id="' + panGrpId + '" role="tablist" aria-multiselectable="true">';
+	var hdrBut = '<div class="dcpm_accordionButs">' + label
+				+ '<button class="dcpm_NoBut " data-toggle="collapse" data-target="#' + panGrpId + '">\
+					<span class="dcpm_caret"><img src="../img/AccordianDownBut.png" /></span>\
+				</button> </div>';
+	// Now add in the panel group that will contain all of the different accordion buttons. The panGrpId 
+	//	ties together the hdr and the panel
+	hdrBut += '<div class="panel-group dcpm_cafes" id="' + panGrpId + '" role="tablist" aria-multiselectable="true">';
+
+	return hdrBut;
 }
 
 // Given the selected city, fill in the Cafe accordion
-function SetupCafeAccordion( city ) {
+function SetupDiningColumn(city) {
 	// Temp labels for the accordion buttons we want to make (normally this comes from the DB or Json files)
-	console.log("SetupCafeAccordion Entry:" + city);
+	console.log("SetupDiningColumn Entry:" + city);
 
 	var butLabels = ["CafeLabel1", "CafeLabel2", "CafeLabel3", "CafeLabel4", "CafeLabel5", "CafeLabel6", "CafeLabel7", "CafeLabel8"];
-	var onePanelHtml = AccordionPanelHeader("accordion");
+	var onePanelHtml = AccordionPanelHeader("Cafe", "diningAccordion");
 	for (var but = 0; but < butLabels.length; but++) {
-		onePanelHtml += CreateOneAccordion("panelGroupId", "The Master Heading...", "collapse" + but, "Cafes B3-" + but, "boring details about this " + but + " cafe...");
+		onePanelHtml += CreateOneAccordion("diningAccordion", "diningBut" + but, "dinCollapse" + but, butLabels[but], FsDb_GetLorem(60));
 	}
 	onePanelHtml += '</div>';
-	$("#cafeAccordionJqFill").html(onePanelHtml);
-	console.log("SetupCafeAccordion Exit:" + city + "\n" + onePanelHtml);
+
+	var otherButs = "";
+	// Fill in the HTML to other buts
+	otherButs = '<div>';
+	otherButs += AddDcmpBut("Tully's Coffee", "Tullys.html");
+	otherButs += AddDcmpBut("Avenue C", "AveC.html");
+	otherButs += '</div>';
+	$("#JqFillDiningCol").html(onePanelHtml + otherButs);
+}
+
+function AddDcmpBut(title, link) {
+	return '<div class="dcpm_SectBut"><a href="' + link + '">' + title + '</a></div>';
+}
+
+// Given the selected city, fill in the Catering Column
+function SetupCateringColumn(city) {
+	// Temp labels for the accordion buttons we want to make (normally this comes from the DB or Json files)
+	console.log("SetupCateringColumn Entry:" + city);
+
+	var butLabels = ["Place an Order", "Online Ordering", "10 Minute Trainer"];
+	var onePanelHtml = AccordionPanelHeader("Order Catering", "cateringAccordion");
+	for (var but = 0; but < butLabels.length; but++) {
+		onePanelHtml += CreateOneAccordion("cateringAccordion", "citybut" + but, "cityCollapse" + but, butLabels[but], FsDb_GetLorem(60));
+	}
+	onePanelHtml += '</div>';		// Required close of div from AccordionPanelHeader
+	onePanelHtml += '<div>';
+	onePanelHtml += AddDcmpBut("Order Coffee Service", "CoffeeService.html");
+	onePanelHtml += '</div>';
+	$("#JqFillCateringCol").html(onePanelHtml);
+	console.log("SetupCateringColumn Exit:" + city);
+}
+
+// Fill in promotions for this city
+function SetupPromosColumn(city) {
+	// Temp labels for the accordion buttons we want to make (normally this comes from the DB or Json files)
+	console.log("SetupPromosColumn Entry:" + city);
+	var colHtml = AddDcmpBut("View Monthly Promos", "Promos.html");
+
+	$("#JqFillPromosCol").html(colHtml);
+	console.log("SetupPromosColumn Exit:" + city);
 }
