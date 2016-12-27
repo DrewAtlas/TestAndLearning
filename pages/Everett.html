@@ -86,7 +86,8 @@
 	<!-- Begin DCMP Section -->
 	<div id="DCMP">
       <div class="row dcmp_row">
-        <div class="col-md-4 ">
+ 		<!-- Begin Dining Column -->
+       <div class="col-md-4 ">
 			<div class="dcmp_iconDining">
 				<img class="center-block" src="../img/DiningIcon.png">
 			</div>
@@ -95,16 +96,13 @@
 			</div>
 
 			<!-- this div is the master visible element under which we will pop up a set of accordion buttons, each of which has an embedded description -->
-			<div class="dcpm_accordionButs">Cafe
-				<button class="dcpm_NoBut " data-toggle="collapse" data-target="#accordion">
-					<span class="dcpm_caret"><img src="../img/AccordianDownBut.png" /></span>
-				</button>
-			</div>
-			<!-- Start the Cafe Accordion -->
-			<div id="cafeAccordionJqFill"></div>
-			<!-- Ends the Cafe Accordion -->
 
+			<!-- Dining Section -->
+			<div id="JqFillDiningCol"></div>
 		</div>
+ 		<div>	</div>
+		<!-- End Dining Column -->
+ 		<!-- Begin Catering Column -->
         <div class="col-md-4">
 			<div class="dcmp_iconCatering">
 				<img class="center-block" src="../img/Cateringicon.png">
@@ -112,18 +110,23 @@
 			<div class="dcmp_InfoHdr">Catering</div>
 			<div class="dcmp_InfoText">This is a lot more about Catering that we can't even tell you enough about this great stuff that we are going to stuff in you
 			</div>
-
+			<!-- Catering Column content -->
+			<div id="JqFillCateringCol"></div>
 		</div>
-        <div class="col-md-4">
+  		<!-- End Catering Column -->
+ 		<!-- Begin Premiums Column -->
+       <div class="col-md-4">
 			<div class="dcmp_iconEvents">
 				<img class="center-block" src="../img/MonthlyPromosIcon.png">
 			</div>
 			<div class="dcmp_InfoHdr">Promos</div>
 			<div class="dcmp_InfoText">This is a lot more about Promos that we can't even tell you enough about this great stuff that we are going to stuff in you
 			</div>
-
+			<!-- Promos Column content -->
+			<div id="JqFillPromosCol"></div>
 		</div>
-      </div>		<!-- Ends div class="row" -->
+  		<!-- End Premiums Column -->
+     </div>		<!-- Ends div class="row" -->
 	</div>
 	<!-- End DCMP Section -->
 

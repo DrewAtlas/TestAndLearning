@@ -29,7 +29,7 @@ $(function () {
 	// Hide the 'view more' button unless it is needed
 	$("#announceViewMore").hide();
 	// Read cookie to see if they have been here before and if so pre-populate the button values
-	SetButtonsWithCookies();
+	SetupCitySearchwCookies();
 
 	// When the state has been selected, we can fill in the city drop down...
 	$('#JqFillInStatePulldown li > a').click(function (e) {
@@ -123,7 +123,7 @@ function SearchButtonClicked() {
 
 // Read in the site's cookies and determine if we already know the user's preference for city and state
 //  if so, fill them in on the buttons
-function SetButtonsWithCookies() {
+function SetupCitySearchwCookies() {
 	var cookieState = getCookie("selectedState");
 	if (cookieState.length > 0) {
 		SetOnlyTextOnButton("#stateBut", cookieState);
@@ -146,6 +146,12 @@ function SetButtonsWithCookies() {
 		FillInNoCityAnnouncement();
 	}
 }
+
+
+// Globals that are set according to city capabilities
+var cityHasEurest = true;
+var cityHasPayrollDeduction = true;
+
 // Fill in the announcement text from our database
 function FillInAnnouncements(city) {
 	// Fill in the selected City from the drop down or single city HTML
@@ -176,13 +182,27 @@ function FillInAnnouncements(city) {
 	{   // No view more info, just hide the button
 	    $("#announceViewMore").hide();
 	}
-		//test
+
+	// Look up how to set globals according to city capabilities
+			// CODE INSERT HERE - The JSON for a city will have this info
+	cityHasEurest = false;
+	cityHasPayrollDeduction = true;
+
+	console.log("City: " + city + ", " + ((cityHasEurest) ? "has" : "does not have") + " Eurest");
+	console.log("City: " + city + ", " + ((cityHasPayrollDeduction) ? "has" : "does not have") + " Payroll deduction");
+
+	ChangePg1SectionsVisibleState(true);
 	// Given the city, set up the cafe accordion
-	console.log("Going to call SetupCafeAccordion city:" + city);
-	SetupCafeAccordion(city);
+	SetupDiningColumn(city);
+	// Now the catering column
+	SetupCateringColumn(city);
+	// Finally, the promos column
+	SetupPromosColumn(city);
 }
 
-// If user has never been to this site, we have a blank city, so give welcome message
+/* If user has never been to this site, they have never selected a city, 
+ *	so give welcome message and eliminate all the other pg1 sections until they do
+*/
 function FillInNoCityAnnouncement() {
 	$("#announceCityId").html("Welcome to Food Services");
 	$("#announceViewMore").hide();
@@ -194,6 +214,49 @@ function FillInNoCityAnnouncement() {
 	    'background-image' : 'url("../img/ForkSpoonBkgnd.png")'
 	});
 	
+	ChangePg1SectionsVisibleState(false);
+}
+
+// An array of page 1 sections that we need to hide if there is not a city. Also the list
+//	to show when there is a city ;-)
+var pg1SectionsToHide = ["#DCMP", "#contactsBg", "#wbSection",
+						"#cycleSection", "#ccBkgnd"];
+
+/* There are sections that should not be shown unless we have a city selected. 
+*	This function will show or hide them based on the boolean input (i.e. true = show)
+*/
+function ChangePg1SectionsVisibleState(areVisible) {
+	for (var sect = 0; sect < pg1SectionsToHide.length; sect++) {
+		ExecuteShowHide(pg1SectionsToHide[sect], areVisible);
+	}
+	ChangeOptionalSectionVisibleState(areVisible);
+}
+
+
+/* Some of the sections are only there if the selected city has that particular feature
+ *	e.g. Eurest or loyalty programs and payroll deduction are not universal, so they are hidden
+ * Here we execute that logic in addition to whether we are showing sections to determine
+ *	if we should make those visible
+ */
+function ChangeOptionalSectionVisibleState(areVisible) {
+	if ( cityHasEurest )
+	{
+		ExecuteShowHide("#eurBkgnd", areVisible);
+	}
+
+	if ( cityHasPayrollDeduction )
+	{
+		ExecuteShowHide("#payBkgnd", areVisible);
+	}
+}
+
+// Actually execute the show/hide on a section
+function ExecuteShowHide( sectLbl, areVisible )
+{
+	if (areVisible)
+		$(sectLbl).show();
+	else
+		$(sectLbl).hide();
 }
 
 

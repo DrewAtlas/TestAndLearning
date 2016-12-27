@@ -91,106 +91,119 @@ dcmp_iconDining	{
     left: 954px;
 }
 
-div.dcmp_InfoHdr { /* Common text characteristics for all 3 column headers */
-	font-size: 32px;
-	color: rgb(120, 182, 51);		/* Green header */
-	font-weight: bold;
-	line-height: 0.844;
-}
+	div.dcmp_InfoHdr { /* Common text characteristics for all 3 column headers */
+		font-size: 32px;
+		color: rgb(120, 182, 51); /* Green header */
+		font-weight: bold;
+		line-height: 0.844;
+	}
 
-div.dcmp_InfoText { /* Common to all columns text blurbs */
-	color: rgb(95, 106, 114); /* Darker text*/
-	font-size: 14px;
-	font-weight: normal;
-}
+	div.dcmp_InfoText { /* Common to all columns text blurbs */
+		color: rgb(95, 106, 114); /* Darker text*/
+		font-size: 14px;
+		font-weight: normal;
+	}
 
-#dcpm_DiningHdr {
-	left: 100px;
-	width: 264px;
-	height: 133px;
-}
+	#dcpm_DiningHdr {
+		left: 100px;
+		width: 264px;
+		height: 133px;
+	}
 
-#dcpm_CateringHdr {
-	left: 500px;
-	width: 245px;
-	height: 133px;
-}
+	#dcpm_CateringHdr {
+		left: 500px;
+		width: 245px;
+		height: 133px;
+	}
 
-#dcpm_PromosHdr {
-	left: 900px;
-	width: 267px;
-	height: 107px;
-}
+	#dcpm_PromosHdr {
+		left: 900px;
+		width: 267px;
+		height: 107px;
+	}
 
-.dcpm_accordionButs {
-	position: relative;
-	top: 15px;
-	left: 10px;
-	z-index: 120;
-	background-color: rgb(120, 182, 51);
-	color: white;
-	width: 320px;
-	height: 42px;
-	border-radius: 5px;
-	text-align: left;
-	padding: 10px;
-	font-weight: bold;
-}
+	.dcpm_accordionButs {
+		position: relative;
+		top: 15px;
+		left: 10px;
+		z-index: 120;
+		background-color: rgb(120, 182, 51);
+		color: white;
+		width: 320px;
+		height: 42px;
+		border-radius: 5px;
+		text-align: left;
+		padding: 10px;
+		font-weight: bold;
+	}
 
-/* We don't want to see the button representation, because we're using the down arrow caret*/
-.dcpm_NoBut {
-	visibility: hidden;
-}
+	/* We don't want to see the button representation, because we're using the down arrow caret*/
+	.dcpm_NoBut {
+		visibility: hidden;
+	}
 
-.dcpm_accordion {
-}
+	.dcpm_caret {
+		position: absolute;
+		right: 20px;
+		top: 8px;
+		z-index: 130;
+		width: 25px;
+		height: 25px;
+		visibility: visible;
+	}
 
-.dcpm_caret {
-	position: absolute;
-	right: 20px;
-	top: 8px;
-	z-index: 130;
-	width: 25px;
-	height: 25px;
-	visibility: visible;
-}
+	.dcpm_cafes {
+		position: relative;
+		top: 20px;
+	}
 
-.dcpm_cafes {
-    position:relative;
-	top: 20px;
-}
+	.dcpm_accordPanels {
+		width: 320px;
+		height: 42px;
+	}
 
-.dcpm_accordPanels{
-	width: 320px;
-	height: 42px;
-}
+	#dcpm_DiningText {
+	}
 
-#dcpm_DiningText {
-}
+	#dcpm_CateringText {
+	}
 
-#dcpm_CateringText {
-}
+	#dcpm_PromosText {
+	}
 
-#dcpm_PromosText {
-}
-
+/* Any of the buttons in the dcpm section 3 columns */
+	.dcpm_SectBut {
+		position: relative;
+		top: 10px;
+		width: 320px;
+		height: 42px;
+		background-color: rgb(120, 182, 51); /* Green button color */
+		color: white;
+		border-radius: 5px;
+		text-align:center;
+		font-size: 16px;
+		font-family: Arial;
+		font-weight: bold;
+		margin: 15px 40px 5px 40px;
+		padding: 10px 0px 20px 0px;
+	}
 
 	/* Contacts Section starts 2039 in comp*/
-#contactsBg {
-	position: relative;
-	top: 600px;
-	width: 1280px;
-	height: 250px;
-	left: 0px;
-	background-color: rgb(246, 246, 246);
-	box-shadow: inset 0px -1px 0px 0px rgba(0, 0, 0, 0.04);
-	z-index: 100;
-	line-height: 2;
-	font-family: "Arial";
-	color: rgb(94, 106, 114);
-	font-size: 16px;
-	text-align: center;
-}
+	#contactsBg {
+		position: relative;
+		top: 600px;
+		width: 1280px;
+		height: 250px;
+		left: 0px;
+		background-color: rgb(246, 246, 246);	/* lt grey background */
+		box-shadow: inset 0px -1px 0px 0px rgba(0, 0, 0, 0.04);
+		z-index: 100;
+		line-height: 2;
+		font-family: "Arial";
+		color: rgb(94, 106, 114);
+		font-size: 16px;
+		text-align: center;
+	}
 
 	#contactsTitle { /* y=2094 title is 36pt bold */
 		font-size: 36px;
@@ -322,10 +335,10 @@ div.dcmp_InfoText { /* Common to all columns text blurbs */
 		line-height: 1.2;
 	}
 
-		#cycleLeftList li {		/* For the li elements in this named div, change to this */
-			line-height: 1.2;
-			color: white;
-		}
+	#cycleLeftList li {		/* For the li elements in this named div, change to this */
+		line-height: 1.2;
+		color: white;
+	}
 
 	.cycleLeft2Buts {
 		top: 85px;
@@ -340,9 +353,9 @@ div.dcmp_InfoText { /* Common to all columns text blurbs */
 	}
 
 #cycleRightArrows {
-	position: absolute;
-	right:30px;
-}
+		position: absolute;
+		right:30px;
+	}
 
 	/* Common to both Payroll and Eurest sections are these */
 #payBkgnd, #eurBkgnd, #ccBkgnd {
