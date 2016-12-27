@@ -17,10 +17,11 @@
     <script src="../js/CommonFuncs.js"></script>
 	<script src="../js/Parallax.js"></script>
 	<script src="../js/FoodServicesDBAccess.js"></script>
+	<script src="../js/CommonSectionGenerator.js"></script>
 	<script src="../js/pg1_Scripts.js"></script>
 	<script src="../js/dcpmSection.js"></script>
 	
-	<link rel="stylesheet" href="../css/Everett.css">
+	<link rel="stylesheet" href="../css/CommonSections.css">
 	<link rel="stylesheet" href="../css/Pg1_Sections_01.css">
 
 	<!-- Set all global variables here - each on in its own meta line -->
@@ -31,16 +32,16 @@
 
 <body class="container">
 	<!-- Begin Navbar/header -->
-	<div class="header">
+	<div class="navbarHeader">
 		<img src="../img/Nav_Bar.png" />
-		<div class="boeingLogo"><img src="../img/BoeingNavBarLogo.png" /></div>
+		<div class="navBoeingLogo"><img src="../img/BoeingNavBarLogo.png" /></div>
 		<div class="navSearch">
 			<div class="navSearchbox"></div>
 			<div class="navSearchIcon"><img src="../img/SearchBtnIcon.png" /></div>
 		</div>
-		<div class="categories">
-			<div class="catHome"><a href="../pages/home.html">Home</a></div>
-			<div class="catFeedback"><a href="../pages/home.html">Feedback</a></div>
+		<div class="navcategories">
+			<div class="navcatHome"><a href="../pages/home.html">Home</a></div>
+			<div class="navcatFeedback"><a href="../pages/home.html">Feedback</a></div>
 		</div>
 	</div>
 	<!-- End Navbar/header -->
@@ -188,14 +189,14 @@
 	<!-- End Well-Being Section -->
 
 	<!-- Begin Payroll Section -->
-	<div id="payBkgnd">
+	<div id="payBkgnd" class="fsSection">
 		<div id="payTtl">Sign up for payroll deduction</div>
 		<div id="payText">The Payroll Deduction feature allows use of your Boeing Employee Smart badge for food and beverage purchases at participating Aramark or Compass/ Eurest-Thompson Boeing cafes and also at Tully's Coffee stores located on Boeing property. </div>
 		<div id="payViewMore">View More</div>
 	</div>
 	<!-- End Payroll Section -->
 	<!-- Begin Loyalty Section -->
-	<div id="eurBkgnd">
+	<div id="eurBkgnd" class="fsSection">
 		<div id="eurTtl">Eurest Token Program</div>
 		<div id="eurText">
 			Eurest food tokens are available through Food Services channels. They come in increments of $2, $3, $5 and "Ice Cream product", and are treated as gift cards for purchase price at Boeing cafes.<br /><br />
@@ -240,7 +241,7 @@
 	
 	<!-- End Recycling  Section -->
 	<!-- Begin Creditcard Section -->
-		<div id="ccBkgnd" class="fsSection">
+	<div id="ccBkgnd" class="fsSection">
 		<div id="ccTitle">Now Accepting</div>
 		<div id="ccText">
 			Now accepting Visa, Mastercard, American Express, Discover & Debit Cards 

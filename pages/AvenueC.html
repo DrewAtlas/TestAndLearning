@@ -1,10 +1,61 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title></title>
-	<meta charset="utf-8" />
+	<title>Everett Page Demo</title>
+
+	<!-- Bootstrap Responsive meta tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- Skip Minified JQ for now
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	-->
+	<script src="../Scripts/jquery-3.1.1.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- My own libraries and styles -->
+	<script src="../js/SetupProjGlobals.js"></script>
+    <script src="../js/CommonFuncs.js"></script>
+	<script src="../js/Parallax.js"></script>
+	<script src="../js/FoodServicesDBAccess.js"></script>
+	<script src="../js/pg1_Scripts.js"></script>
+	<script src="../js/dcpmSection.js"></script>
+	
+	<link rel="stylesheet" href="../css/Everett.css">
+	<link rel="stylesheet" href="../css/Pg1_Sections_01.css">
+
+	<!-- Set all global variables here - each on in its own meta line -->
+	<!-- Set the offset for the hero background so the parallax places it correctly -->
+	<meta name="parallaxYOffset" content="0" />
+
 </head>
-<body>
-	<h1>Avenue C, Man!</h1>
+
+<body class="container">
+	<!-- JQ to fill in the header -->
+	<div id="JqFill_aveCHdr"></div>
+	<!-- JQ to fill in the Announcements -->
+	<div id="JqFill_aveCAnnounce"></div>
+
+	<!-- Begin aveC Hero/Parallax -->
+	<div class="aveCframe parallax aveCImg">
+		<div class="aveCLogo"><img src="../img/aveCsLogo.png" /></div>
+	</div>
+	<!-- End Hero/Parallax -->
+	<!-- Begin aveCs Description -->
+	<div class="">
+
+	</div>
+	<!-- End aveCs Description -->
+	<!-- Begin aveCStoreHours -->
+	<div class="">
+
+	</div>
+	<!-- End aveCStoreHours -->
+
+	<!-- JQ to fill in the credit section -->
+	<div id="JqFill_credit"></div>
+
+	<!-- JQ to fill in the Footer -->
+	<div id="JqFill_aveCFooter"></div>
 </body>
+
 </html>

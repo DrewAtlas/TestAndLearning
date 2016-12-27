@@ -1,0 +1,279 @@
+﻿/* CommonSections.css 
+	Purpose:	These styles are used on every page in the site
+*/
+
+	/* Add to/Override items in the built-in container class */
+  .container {
+		width: 100%;
+	  /* Get rid of height later - its determined automatically by the elements present */
+		height:3500px;
+		margin:auto;	/* w/o setting this, an 8-pixel margin is default */
+  }
+
+	/* General section class setup */
+	.fsSection {
+		position: relative;
+		top: 600px;
+		width: 1280px;
+		left: 0px;
+		z-index: 100;
+		font-family: "Arial";
+		font-size: 14px;
+		font-weight: normal;
+		text-align: center;
+		background-color: transparent;
+	}
+
+	/* General Row setup when we're using bootstrap columns */
+		.fsRow  {
+		margin-left: 150px;
+		margin-right: 100px;
+		position: relative;
+	}
+
+	/* This is the parent for the nav bar search box and icon, set the position responsively
+		so that it is always 20px away from the right hand side
+	*/
+
+	.navbarHeader {
+		position:absolute;
+		height: 75px;
+		width:1280px;
+		left:0;
+		top:0;
+		z-index: 100;
+	}
+
+	.navSearch {
+		position:absolute;
+		right: 20px;
+		top: 21px;
+		width: 183px;
+		height: 35px;
+		z-index: 200;
+	}
+
+	.navSearchbox {
+		border-style: solid;
+		border-width: 1px;
+		border-color: rgb(0, 0, 0);
+		background-color: rgb(255, 255, 255);
+		position: absolute;
+		width: 183px;
+		height: 35px;
+		z-index: 200;
+	}
+
+	.navSearchIcon {
+		box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.2);
+		position: absolute;
+		width: 14px;
+		height: 12px;
+		z-index: 200;
+	}
+
+	.navBoeingLogo {
+	  position: absolute;
+	  left: 31px;
+	  top: 33px;
+	  z-index: 200;
+	}
+
+	.navcategories {			/* Text buttons in the nav bar */
+	  font-size: 18px;
+	  font-family: "Arial";
+	  font-weight: bold;
+	  text-align: left;
+	  position: absolute;
+	  z-index: 200;
+	  top: 32px;
+	  right: 400px;
+	}
+
+	a {			/* Make sure that the text buts on the nav do not have underline */
+		color: rgb(255, 255, 255);
+		text-decoration: none;
+	}
+
+	.navcatHome {
+	  position: absolute;
+	  left:0px;
+	}
+
+	.navcatFeedback {
+	  position: absolute;
+	  left: 4em;	/* Position this after "Home" */
+	}
+
+/* Announcements section are right underneath the hero/parallax */
+#announceTop  {
+	font-family: "Arial";	
+	color: rgb(95, 106, 114);
+	text-align: center;
+	background-repeat: no-repeat;
+	z-index: 80;
+	position: relative;
+	top: 600px;
+	width: 1280px; /* w/o this width specified, it didn't have one */
+	height: 240px;	/* w/o a height, the next element overwrites this div
+			the problem is that the height needs to depend on whether there is text there or not
+		so I will have to adjust this programmatically?
+	*/
+}
+
+#announceCityId {
+	font-size: 36px;
+	text-align:center;
+	height: 50px;
+	font-weight: bold;
+	position: relative;
+	top: 10px;
+}
+
+div#announceTextId {
+	font-size: 14px;
+	text-align: center;
+	margin: 20px 200px 20px 200px;
+	position: relative;
+	top: 10px;
+}
+
+div#announceViewMore {
+	font-size: 14px;
+	background-color: rgb(120, 182, 51);
+	color: white;
+	letter-spacing: 2px;
+	line-height: 0.857;
+	text-align: center;
+	border-radius: 5px;
+	margin: auto;			/* This centers the div button */
+	width: 120px;
+	height: 36px;
+	position:relative;
+	top: 25px;
+	padding-top: 12px;		/* This makes the text center in the box */
+}
+
+/* Creditcard Section */
+	#ccBkgnd {
+		height: 170px;
+		color: rgb(94,106,114);
+		background-color: white;
+	}
+
+	#ccTitle {
+		position: relative;
+		top: 20px;
+		font-weight: bold;
+		font-size: 36px;
+		text-align: center;
+	}
+
+	#ccText {
+		position: relative;
+		top: 15px;
+		font-size: 16px;
+		text-align: center;
+	}
+
+	#ccPicture {
+		position: relative;
+		top: 20px;
+		background-image: url("../img/CreditCards.png");
+		background-repeat:no-repeat;
+		width: 448px;
+		height: 32px;
+		margin:auto;
+	}
+
+
+/* Footer Section - Note the footer starts at 1010 in the 'short comp', so any coords derived from
+	the photoshop CSS have already taken that into account */
+#footerBkgnd {
+    position: relative;
+    top: 600px;
+    width: 1280px;
+    height: 261px;
+    left: 0px;
+    z-index: 100;
+    background-color: rgb(95, 106, 114);
+    font-family: "Arial";
+    color: rgb(255, 255, 255);
+    font-size: 12px;
+    line-height: 2;
+    text-align: left;
+}
+
+	#footerFsLogo {
+		position:absolute;
+		left: 52px;
+		top: 56px;
+	}
+
+	/* Position of the Boeing Copyright message in the LL corner */
+	#footerBoeingTag {
+		font-size: 14px;
+		font-family: "Arial";
+		color: white;
+		position: absolute;
+		left: 52px;
+		top: 214px;
+	}
+
+	#footerLeftDivider, #footerRightDivider {
+		background-color: rgb(255, 255, 255);
+		position: absolute;
+		top: 51px;
+		width: 2px;
+		height: 161px;
+	}
+
+	/* Both these dividers are part of the middle column, so we are going to position relative to that*/
+	#footerLeftDivider {
+		left: 2px;
+	}
+
+	#footerRightDivider {
+		right: 2px;
+	}
+
+	#footerPageLinks, #footerOtherLinks {
+		position:absolute;
+		top: 49px;
+	}
+
+	#footerPageLinks {
+		left: 30px;
+		width:150px;
+	}
+
+	#footerOtherLinks {
+		right: 30px;
+		width: 90px;
+	}
+	
+	#footerFeedbackBut {
+		background-color: rgb(120, 182, 51);
+		position: absolute;
+		border-radius: 5px;
+		left: 66px;
+		top: 52px;
+		width: 150px;
+		height: 36px;
+		color: white;
+		font-size: 14px;
+		font-weight: bold;
+		line-height: 1.929;
+		text-align: center;
+	}
+
+	#footerFeedbackText {
+		position: absolute;
+		left: 20px;
+		text-align: center;
+		width: 225px;
+		top: 120px;
+		line-height: 1.5;
+		font-size: 14px;
+	}
+

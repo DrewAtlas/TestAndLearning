@@ -1,5 +1,4 @@
-﻿
-/* pg1_script.js
+﻿/* pg1_script.js
 	Purpose:	Contains the functions needed to run pg1 of Food Services website. In particular
 				the jQuery calls that load up the state and city picker pull-downs are done
 				here and the logic to put in the city based on the state. Also anything needed
@@ -114,7 +113,7 @@ function SearchButtonClicked() {
 	if (window.stateSelected && window.citySelected) {
 		setCookie("selectedState", window.stateName, window.cookieExpirationDays);
 		setCookie("selectedCity", window.cityName, window.cookieExpirationDays);
-		FillInAnnouncements(window.cityName);
+		pg1PrepAnnouncements(window.cityName);
 	}
 	else {
 		alert("Both State and City must be selected to do the search")
@@ -140,7 +139,7 @@ function SetupCitySearchwCookies() {
 	if (window.stateSelected && window.citySelected) {
 		window.stateName = cookieState;
 		window.cityName = cookieCity;
-		FillInAnnouncements(window.cityName);
+		pg1PrepAnnouncements(window.cityName);
 	}
 	else {
 		FillInNoCityAnnouncement();
@@ -153,36 +152,9 @@ var cityHasEurest = true;
 var cityHasPayrollDeduction = true;
 
 // Fill in the announcement text from our database
-function FillInAnnouncements(city) {
-	// Fill in the selected City from the drop down or single city HTML
-	console.log("FillInAnnouncements city:" + city);
-	$("#announceCityId").html(city);
-	// Pull in the announcements from the database and display it
-	var cityAnnounce = FsDb_GetCityAnnouncements(city);
-	$("#announceTextId").html(cityAnnounce);
+function pg1PrepAnnouncements(city) {
 
-	if (cityAnnounce != null && cityAnnounce.length == 0) {
-		// No announcements, so just disappear this section
-		$("#announceTop").hide();
-		return;
-	}
-	else
-	{   // Since we have a city to show, we're not going ot show the 'fork and spoon' background
-	    $('#announceTop').css('background-color', 'rgb(246,246,246)');     // Get correct grey color for this setting
-		$("#announceTop").show();
-	}
-
-	var viewMore = FsDb_GetViewMore(city);
-	if (viewMore != null && viewMore.length > 0) {   // This city has more things to say, create the view more page and button
-	    $("#announceViewMore").show();
-	    // Set the 'View more' button to point to somewhere
-	    $("#announceViewMore").attr("href", viewMore);
-	}
-	else
-	{   // No view more info, just hide the button
-	    $("#announceViewMore").hide();
-	}
-
+	var cityExists = FillInAnnouncements(city);
 	// Look up how to set globals according to city capabilities
 			// CODE INSERT HERE - The JSON for a city will have this info
 	cityHasEurest = false;
