@@ -1,10 +1,59 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title></title>
-	<meta charset="utf-8" />
+	<title>Everett Page Demo</title>
+
+	<!-- Bootstrap Responsive meta tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- Skip Minified JQ for now
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	-->
+	<script src="../Scripts/jquery-3.1.1.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- My own libraries and styles -->
+	<script src="../js/SetupProjGlobals.js"></script>
+    <script src="../js/CommonFuncs.js"></script>
+	<script src="../js/Parallax.js"></script>
+	<script src="../js/FoodServicesDBAccess.js"></script>
+	<script src="../js/CommonSectionGenerator.js"></script>
+	<script src="../js/pgTully_Script.js"></script>
+	
+	<link rel="stylesheet" href="../css/CommonSections.css">
+	<link rel="stylesheet" href="../css/pgTully_Style.css">
+
+	<!-- Set all global variables here - each on in its own meta line -->
+	<!-- Set the offset for the hero background so the parallax places it correctly -->
+	<meta name="parallaxYOffset" content="0" />
 </head>
-<body>
-	<h1>Tully's, Man!</h1>
+
+<body class="container">
+	<!-- JQ to fill in the header -->
+	<div id="JqFill_tullyHdr"></div>
+	<!-- JQ to fill in the Announcements -->
+	<div id="JqFill_tullyAnnounce"></div>
+
+	<!-- Begin Tully Hero/Parallax -->
+	<div class="tullyframe parallax tullyImg">
+		<div class="tullyLogo"><img src="../img/TullysLogo.png" /></div>
+	</div>
+	<!-- End Hero/Parallax -->
+	<!-- Begin Tullys Description -->
+	<div class="">
+
+	</div>
+	<!-- End Tullys Description -->
+	<!-- Begin TullyStoreHours -->
+	<div class="">
+
+	</div>
+	<!-- End TullyStoreHours -->
+
+	<!-- JQ to fill in the credit section -->
+	<div id="JqFill_credit"></div>
+
+	<!-- JQ to fill in the Footer -->
+	<div id="JqFill_tullyFooter"></div>
 </body>
 </html>
