@@ -62,10 +62,7 @@ div#announceViewMore {
 	background-color: white;
 	text-align: center;
 	z-index: 100;
-	height:800px;	/* This will have to be adjusted depending on the content */
-}
-
-#CafeAccordion {
+	height:850px;	/* This will have to be adjusted depending on the content */
 }
 
 .dcmp_row {
