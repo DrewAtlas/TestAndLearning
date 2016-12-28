@@ -17,9 +17,7 @@
 	/* General section class setup */
 	.fsSection {
 		position: relative;
-		top: 600px;
 		width: 1280px;
-		left: 0px;
 		z-index: 100;
 		font-family: "Arial";
 		font-size: 14px;
@@ -40,11 +38,9 @@
 	*/
 
 	.navbarHeader {
-		position:absolute;
+		position:relative;
 		height: 75px;
 		width:1280px;
-		left:0;
-		top:0;
 		z-index: 100;
 	}
 
@@ -117,7 +113,6 @@
 	background-repeat: no-repeat;
 	z-index: 80;
 	position: relative;
-	top: 600px;
 	width: 1280px; /* w/o this width specified, it didn't have one */
 	height: 240px;	/* w/o a height, the next element overwrites this div
 			the problem is that the height needs to depend on whether there is text there or not
@@ -126,23 +121,29 @@
 }
 
 #announceCityId {
+	position: relative;
+	top: 10px;
 	font-size: 36px;
 	text-align:center;
 	height: 50px;
 	font-weight: bold;
-	position: relative;
-	top: 10px;
 }
 
 div#announceTextId {
+	position: relative;
+	top: 10px;
 	font-size: 14px;
 	text-align: center;
 	margin: 20px 200px 20px 200px;
-	position: relative;
-	top: 10px;
 }
 
 div#announceViewMore {
+	position:relative;
+	top: 25px;
+	width: 120px;
+	height: 36px;
+	width: 120px;
+	height: 36px;
 	font-size: 14px;
 	background-color: rgb(120, 182, 51);
 	color: white;
@@ -151,10 +152,6 @@ div#announceViewMore {
 	text-align: center;
 	border-radius: 5px;
 	margin: auto;			/* This centers the div button */
-	width: 120px;
-	height: 36px;
-	position:relative;
-	top: 25px;
 	padding-top: 12px;		/* This makes the text center in the box */
 }
 
@@ -195,7 +192,7 @@ div#announceViewMore {
 	the photoshop CSS have already taken that into account */
 #footerBkgnd {
     position: relative;
-    top: 600px;
+    /* top: 600px; */
     width: 1280px;
     height: 261px;
     left: 0px;
