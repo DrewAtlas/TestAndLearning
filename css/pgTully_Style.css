@@ -10,17 +10,12 @@
 		background-color: transparent;
 		background-repeat:no-repeat;
 		position:relative;
-		top: 0px;
 		width:  1280px;		/* w/o this width specified, it didn't have one */
 		height: 475px;
-		left:0px;			/* if we don't do this there is a 5px gap on the left*/
 	}
 
 	.tullyImg {
+		position:relative;
+		top: -45px;
 		background-image:  url("../img/TullysBackground.png");
 	}
-
-	/* Setup overrides on common items to get them to position right */
-#announceTop {
-	top: 0px;
-}
