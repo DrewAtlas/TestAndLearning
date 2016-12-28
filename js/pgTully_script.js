@@ -15,12 +15,18 @@ $(function () {
 
 	// Generate the sections of the page that we can
 	GenerateBoeingHeader("#JqFill_tullyHdr", false);
-	GenerateAnnouncementSection("#JqFill_tullyAnnounce", window.cityName);
+	GenerateAnnouncementSection("#JqFill_tullyAnnounce");
+
+
 	GenerateCreditSection("#JqFill_credit");
 
 	// Fill in the IDs of anchor points within this page for the footer links
 	var tullyPageAnchors = ["#tullyAnchor1"];
 	GenerateFooter("#JqFill_tullyFooter", tullyPageAnchors);
 
-	FillInAnnouncements(window.cityName);
+	// Retrieve the city name from the cookie, can't get it from window or top
+	top.cityName = getCookie("selectedCity");
+
+	console.log("Tullys using city: " + top.cityName);
+	FillInAnnouncements(top.cityName);
 });

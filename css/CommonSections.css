@@ -10,6 +10,10 @@
 		margin:auto;	/* w/o setting this, an 8-pixel margin is default */
   }
 
+	.parallax {
+		background-position: 0 0;
+	}
+
 	/* General section class setup */
 	.fsSection {
 		position: relative;

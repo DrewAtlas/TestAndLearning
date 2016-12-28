@@ -38,7 +38,7 @@ function GenerateBoeingHeader(idToFill, isPg1) {
 	$(idToFill).html(final);
 }
 
-function GenerateAnnouncementSection(idToFill, city)
+function GenerateAnnouncementSection(idToFill)
 {
 	var final = 
 	'<div id="announceTop">\
@@ -106,8 +106,7 @@ function GenerateFooter(idToFill, anchors) {
 		</div>';
 
 	var footerEnd = '</div></div>';	// Closes row then footerBkgnd
-
-	return footer + footerCol2 + footerCol3 + footerEnd;
+	$(idToFill).html(footer + footerCol2 + footerCol3 + footerEnd);
 }
 
 /* All the above sections are designed to generate a section from scratch. Now assuming that the

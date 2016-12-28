@@ -11,6 +11,15 @@
 
 // Document().ready function - what we need to do when the page loads
 $(function () {
+	// Generate the sections of the page that we can
+	GenerateBoeingHeader("#JqFill_pg1Hdr", true);
+	GenerateAnnouncementSection("#JqFill_pg1Announce");
+	GenerateCreditSection("#JqFill_credit");
+
+	// Fill in the IDs of anchor points within this page for the footer links
+	var pgAnchors = ["Something1", "Something2","Something3","Something4","Something5",];
+	GenerateFooter("#JqFill_pg1Footer", pgAnchors);
+
 	// Fill in the state dropdown
 	var statePd = ["Alabama", "Arizona", "California", "Canada", "Illinois", "Missouri",
                     "Oregon", "Pennsylvania", "South Carolina", "Texas", "Washington", "Washington DC"];
@@ -42,7 +51,7 @@ $(function () {
 		SetOnlyTextOnButton("#cityBut", window.gDefaultCityString);
 		// Set global var indicating the state is selected
 		window.stateSelected = true;
-		window.stateName = selectedSt;
+		top.stateName = selectedSt;
 
 		switch (selectedSt) {
 			case 'Alabama':
@@ -87,7 +96,8 @@ $(function () {
 			SetOnlyTextOnButton("#cityBut", cityPd[0]);
 			// Set global var indicating the city is selected
 			window.citySelected = true;
-			window.cityName = cityPd[0];
+			top.cityName = cityPd[0];
+			console.log("Only one city: " + top.cityName + ", state: " + top.stateName);
 		}
 		else {   // Note that we now have a city that must be selected
 			window.citySelected = false;
@@ -101,19 +111,24 @@ $(function () {
 			SetOnlyTextOnButton("#cityBut", selectedCity);
 			// Set global var indicating the city is selected
 			window.citySelected = true;
-			window.cityName = selectedCity;
+			top.cityName = selectedCity;
 			// Have to call preventDefault to keep the page from jumping to the top
 			e.preventDefault();
+			console.log("User picked city: " + top.cityName + ", state: " + top.stateName);
 		});
 	});				// Ends $(JqFillInStatePulldown).onclick
+
+
 });				// Ends $(Document.ready())
 
 // User picked the 'Search for City' button
 function SearchButtonClicked() {
 	if (window.stateSelected && window.citySelected) {
-		setCookie("selectedState", window.stateName, window.cookieExpirationDays);
-		setCookie("selectedCity", window.cityName, window.cookieExpirationDays);
-		pg1PrepAnnouncements(window.cityName);
+		setCookie("selectedState", top.stateName, window.cookieExpirationDays);
+		setCookie("selectedCity", top.cityName, window.cookieExpirationDays);
+		pg1PrepAnnouncements(top.cityName);
+
+		console.log("Stored city: " + top.cityName + " and state: " + top.stateName + " in cookies");
 	}
 	else {
 		alert("Both State and City must be selected to do the search")
@@ -137,9 +152,10 @@ function SetupCitySearchwCookies() {
 
 	// Fill in the announcement text up front since we have the city
 	if (window.stateSelected && window.citySelected) {
-		window.stateName = cookieState;
-		window.cityName = cookieCity;
-		pg1PrepAnnouncements(window.cityName);
+		top.stateName = cookieState;
+		top.cityName = cookieCity;
+		console.log("Stored city: " + cookieCity + " in top: " + top.cityName);
+		pg1PrepAnnouncements(top.cityName);
 	}
 	else {
 		FillInNoCityAnnouncement();
