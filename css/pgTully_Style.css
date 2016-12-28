@@ -1,2 +1,26 @@
-﻿body {
+﻿	.tullyLogo {				/* "Food Services" logo on top of hero, scrolls with page */
+		position:relative;
+		width:  278px;
+		height: 314px;
+		left:750px;
+		top: 120px;
+	}
+
+	.tullyframe {
+		background-color: transparent;
+		background-repeat:no-repeat;
+		position:relative;
+		top: 0px;
+		width:  1280px;		/* w/o this width specified, it didn't have one */
+		height: 475px;
+		left:0px;			/* if we don't do this there is a 5px gap on the left*/
+	}
+
+	.tullyImg {
+		background-image:  url("../img/TullysBackground.png");
+	}
+
+	/* Setup overrides on common items to get them to position right */
+#announceTop {
+	top: 0px;
 }

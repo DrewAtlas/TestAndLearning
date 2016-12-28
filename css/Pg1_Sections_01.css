@@ -3,12 +3,12 @@
 				and I didn't want to keep making the first file huge with more styles, so I separated them out
 */
 
-.foodLogo {				/* "Food Services" logo on top of hero, scrolls with page */
-	width:  383px;
-	height: 238px;
-	margin: auto;		/* auto centers it horizontally */
-	margin-top: 181px;
-}
+	.foodLogo {				/* "Food Services" logo on top of hero, scrolls with page */
+		width:  383px;
+		height: 238px;
+		margin: auto;		/* auto centers it horizontally */
+		margin-top: 181px;
+	}
 
 	.heroframe {
 		background-color: transparent;
@@ -18,10 +18,6 @@
 		width:  1280px;		/* w/o this width specified, it didn't have one */
 		height: 600px;
 		left:0px;			/* if we don't do this there is a 5px gap on the left*/
-	}
-
-	.parallax {
-		background-position: 0 0;
 	}
 
 	.heroImg {
