@@ -16,8 +16,6 @@ $(function () {
 	// Generate the sections of the page that we can
 	GenerateBoeingHeader("#JqFill_tullyHdr", false);
 	GenerateAnnouncementSection("#JqFill_tullyAnnounce");
-
-
 	GenerateCreditSection("#JqFill_credit");
 
 	// Fill in the IDs of anchor points within this page for the footer links
@@ -29,4 +27,7 @@ $(function () {
 
 	console.log("Tullys using city: " + top.cityName);
 	FillInAnnouncements(top.cityName);
+
+	// Fill description paragraph
+	$("#TulDescriptParagraph").html(FsDb_GetLorem(500));
 });

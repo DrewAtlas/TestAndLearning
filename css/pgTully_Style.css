@@ -19,3 +19,63 @@
 		top: -45px;
 		background-image:  url("../img/TullysBackground.png");
 	}
+
+	.TulIndent {			/* Use this class in addition to ID for all text */
+		left: 150px;
+	}
+
+#TulDescriptSection {			/* Note we're also getting settings from common .fsSection */
+	background-color: white;
+    color: rgb(90, 103, 113);	/* not-quite-black text color */
+	font-size: 16px;
+	line-height: 2;
+    text-align: left;
+	z-index:110;
+    font-weight: bold;
+}
+#TulDescriptTtl {
+    position: relative;
+    top: 15px;
+	font-size: 36px;
+}
+#TulDescriptsubHdr{
+    position: relative;
+    top: 10px;
+}
+#TulDescriptParagraph {
+    position: relative;
+    top: 10px;
+    font-weight: normal;
+}
+#TulDescriptViewMap {
+	color: white;
+    background-color: rgb(120, 182, 51);	/* Green button bkgnd */
+	border-radius: 5px;
+    position: relative;
+    top: 10px;
+	bottom: 15px;
+    width: 137px;
+    height: 36px;
+	padding-top: 12px;		/* This makes the text center in the box */
+	text-align: center;
+}
+
+
+#TulStoreHoursSection {		/* Note we're also getting settings from common .fsSection */
+    color: rgb(95, 106, 114);				/* Not quite black text color */
+	background-color: rgb(246, 246, 246);	/* light grey background */
+	font-size: 16px;
+	line-height: 2;
+    text-align: left;
+	z-index:110;
+    font-weight: bold;
+}
+#TulStoreHoursTtl {
+	font-size: 36px;
+}
+.TulHoursHdr {
+	font-size: 21px;
+}
+.TulHoursTimes {
+}
+
