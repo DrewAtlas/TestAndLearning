@@ -98,3 +98,73 @@ function GetRandomPieceOfText(theText, size) {
 
 	return ret;
 }
+
+//====================  Functions to return store hours for Tullys ===================
+var maxHours = 20;
+// Create an array of hours objects
+/*
+function GetTullyStoreHoursForCity(city) {
+
+	var hourSets = [];
+	for (var hours = 0; hours < maxHours; hours++) {
+		hourSets[hours] = { hoursHeader: GenerateBoeingBuildingName(), hours: GenerateHoursSet() };
+	}
+
+	return hourSets;
+}
+*/
+/* Create something like this
+"<span style="font-weight:bold">M-F:</span> 4am-7:30pm<br/>\
+			<span style="font-weight:bold">M-F:</span> 4am-7:30pm<br/>\
+			<span style="font-weight:bold">M-F:</span> 4am-7:30pm
+
+	For linebreaks: ;	// Use 15ch max on a line
+*/
+
+function GenerateBoeingBuildingName() {
+	var names = ["Mezzanine", "Delivery Center", "Harbour Pointe", "Wire Shop", "Atlas Rocket",
+				"Skylab", "Twin Towers", "Tower of Power", "House of Paine"];
+
+	var startName = "";
+	// Pick a name, Boeing or not, and a building number (or not)
+	var nameIdx = Math.floor(Math.random() * (names.length * 1.5));
+	if ( nameIdx < names.length )
+		startName = names[nameIdx];
+
+	var theBo = "";
+	// Pick a name, Boeing or not, and a building number (or not)
+	nameIdx = Math.floor(Math.random() * 10);
+	if ( nameIdx & 1 )
+		theBo = "Boeing";
+
+	var buildingNbr = Math.floor(Math.random() * 100).toString() + "-" + Math.floor(Math.random() * 400).toString();
+
+	var fullName = theBo + " " + startName + " " + buildingNbr;
+	if ( fullName.length > 15 )
+	{	// Replace the 2nd space with a <br>
+		var nth = 0;
+		fullName = fullName.replace("/ /g", function(match, i, original) {
+			nth++;
+			return (nth === 2) ? "<br/>" : match;
+		});
+	}
+
+}
+
+function GenerateHoursSet() {
+	var weekDays = [ "Open 23 Hours, (Closed 11:30pm-12:30am daily)", 
+					"M-F:, 12:30am-11:30pm", "M-F:, 11:00am-4:00pm",
+					"M-F:, 5:30am-11:30pm", "M-F:, 8:00am-4:00pm" ];
+	
+	var Sat = [ "SAT:, 12:30a-6:30pm", "SAT:, 5am-3:30pm", "SAT:, 5am-5:30pm", "SAT:,Closed" ];
+	var Sun = ["SUN:, Closed", "SUN:, 5am-3:309pm", "SUN:, 5am-3:309pm", "SUN:, 5am-3:309pm"];
+
+	var set = "";
+	// Pick a name, Boeing or not, and a building number (or not)
+	var nameIdx = Math.floor(Math.random() * weekDays.length);
+	set += weekDays[nameIdx];
+	set += Sat[Math.floor(Math.random() * Sat.length)];
+	set += Sun[Math.floor(Math.random() * Sun.length)];
+
+	return set;
+}
