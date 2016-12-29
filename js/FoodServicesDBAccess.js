@@ -99,6 +99,41 @@ function GetRandomPieceOfText(theText, size) {
 	return ret;
 }
 
+// Create an array of hours objects
+function GetTullyStoreHoursForCity(city) {
+	var maxHours = 3 + Math.floor(Math.random() * 15);
+	var hourSets = new Array(maxHours);
+	for (var hr = 0; hr < maxHours; hr++) {
+		hourSets[hr] = { hoursHeader: GenerateBoeingBuildingName(), hours: GenerateHoursSet() };
+		console.info("Set for " + hr + " is [ " + hourSets[hr].hoursHeader + ", " + hourSets[hr].hours + "]");
+	}
+	console.info("Created " + hourSets.length + " hour sets");
+	return hourSets;
+}
+
+var x = "[\n\t{\"hoursHeader\": \"Boeing 40-21\",\n\t\"hours\": \"<span style=\"font-weight:bold\">M-F:</span> 4am-7:30pm<br/>\n\t\t\t<span style=\"font-weight:bold\">M-F:</span> 4am-7:30pm<br/>\n\t\t\t<span style=\"font-weight:bold\">M-F:</span> 4am-7:30pm<br/>}\n\t{\"hoursHeader\": \"PaineField<br/>Boeing 40-21\",\n\t\"hours\": \"<span style=\"font-weight:bold\">M-F:</span> 4am-7:30pm<br/>\n\t\t\t<span style=\"font-weight:bold\">M-F:</span> 4am-7:30pm<br/>\n\t\t\t<span style=\"font-weight:bold\">M-F:</span> 4am-7:30pm<br/>}\n\t{\"hoursHeader\": \"PaineField<br/>Boeing 40-21\",\n\t\"hours\": \"<span style=\"font-weight:bold\">M-F:</span> 4am-7:30pm<br/>\n\t\t\t<span style=\"font-weight:bold\">M-F:</span> 4am-7:30pm<br/>\n\t\t\t<span style=\"font-weight:bold\">M-F:</span> 4am-7:30pm<br/>}\n]";
+
+var demoHourBlocks =
+'[\
+	{"hoursHeader": "Boeing 40-21",\
+	"hours": "<span style="font-weight:bold">M-F:</span> 4am-7:30pm<br/>\
+			<span style="font-weight:bold">M-F:</span> 4am-7:30pm<br/>\
+			<span style="font-weight:bold">M-F:</span> 4am-7:30pm<br/>}\
+	{"hoursHeader": "PaineField<br/>Boeing 40-21",\
+	"hours": "<span style="font-weight:bold">M-F:</span> 4am-7:30pm<br/>\
+			<span style="font-weight:bold">M-F:</span> 4am-7:30pm<br/>\
+			<span style="font-weight:bold">M-F:</span> 4am-7:30pm<br/>}\
+	{"hoursHeader": "PaineField<br/>Boeing 40-21",\
+	"hours": "<span style="font-weight:bold">M-F:</span> 4am-7:30pm<br/>\
+			<span style="font-weight:bold">M-F:</span> 4am-7:30pm<br/>\
+			<span style="font-weight:bold">M-F:</span> 4am-7:30pm<br/>}\
+]';
+
+// Parse the above demos tring into a JS object
+function xGetTullyStoreHoursForCity(city) {
+	return JSON.parse(x);
+}
+
 //====================  Functions to return store hours for Tullys ===================
 var maxHours = 20;
 // Create an array of hours objects
@@ -121,6 +156,8 @@ function GetTullyStoreHoursForCity(city) {
 	For linebreaks: ;	// Use 15ch max on a line
 */
 
+var gMaxTitleLen = 15;		// Desired max length for a store title
+
 function GenerateBoeingBuildingName() {
 	var names = ["Mezzanine", "Delivery Center", "Harbour Pointe", "Wire Shop", "Atlas Rocket",
 				"Skylab", "Twin Towers", "Tower of Power", "House of Paine"];
@@ -140,17 +177,69 @@ function GenerateBoeingBuildingName() {
 	var buildingNbr = Math.floor(Math.random() * 100).toString() + "-" + Math.floor(Math.random() * 400).toString();
 
 	var fullName = theBo + " " + startName + " " + buildingNbr;
-	if ( fullName.length > 15 )
-	{	// Replace the 2nd space with a <br>
-		var nth = 0;
-		fullName = fullName.replace("/ /g", function(match, i, original) {
-			nth++;
-			return (nth === 2) ? "<br/>" : match;
-		});
+	if ( fullName.length > gMaxTitleLen )
+	{
+		fullName = ReplaceWordBreak(fullName, gMaxTitleLen, "<br/>");
 	}
 
+	return fullName;
 }
 
+/* ReplaceWordBreak()
+ * Purpose:	Replace a space inbetween words in a string with another string (e.g. like <br>)
+ *			The word break to replace is the one nearest to the number of characters passed in
+ *			Only one replacement of the searchStr will be done
+ * Inputs:	the string in which to search,
+ *			the string we want to replace,
+ *			the occurence number we are interested in (e.g. to replace the 2nd occurance of searchStr, pass 2)
+ *			the replacement string
+ * Returns:	the altered string
+ */
+function ReplaceWordBreak(original, charsBeforeBreak, replaceStr) {
+	// Split the string into words
+	var words = original.split(' ');
+	// Figure out which word break should be replaced
+	var charCount = 0;
+	var convertedStr = "";
+	for (var j = 0; j < words.length; j++) {
+		charCount += words[j].length + 1;
+		convertedStr += words[j]
+		if (charCount > charsBeforeBreak) {
+			convertedStr += replaceStr;
+			charsBeforeBreak = original.length + 20;	// Make sure we don't execute this logic again
+		}
+		else {
+			convertedStr += ' ';
+		}
+	}
+
+	console.info("ReplaceWordBreak(): Changed: " + original + " to " + convertedStr);
+	return convertedStr;
+}
+
+
+/* ReplaceNthOccurence() - DOESN'T WORK
+ * Purpose:	Replace a string with another string, but only do it to the Nth occurence of that search string in the original
+ *			Only one replacement of the searchStr will be done
+ * Inputs:	the string in which to search,
+ *			the string we want to replace,
+ *			the occurence number we are interested in (e.g. to replace the 2nd occurance of searchStr, pass 2)
+ *			the replacement string
+ * Returns:	the altered string
+ */
+function ReplaceNthOccurence(original, searchStr, occurNbr, replaceStr) {
+
+	console.info("ReplaceNthOccurence(): Changing full name from: " + original);
+	var nth = 0;
+	var changedStr = original.replace('/' + searchStr + '/g', function (match) {
+		nth++;
+		return (nth === occurNbr) ? replaceStr : match;
+	});
+	console.info("ReplaceNthOccurence(): Full name changed to this: " + changedStr);
+	return changedStr;
+}
+
+// Before we have real data, make up some hours of the data that this cafe is open so it looks good
 function GenerateHoursSet() {
 	var weekDays = [ "Open 23 Hours, (Closed 11:30pm-12:30am daily)", 
 					"M-F:, 12:30am-11:30pm", "M-F:, 11:00am-4:00pm",
@@ -162,9 +251,28 @@ function GenerateHoursSet() {
 	var set = "";
 	// Pick a name, Boeing or not, and a building number (or not)
 	var nameIdx = Math.floor(Math.random() * weekDays.length);
-	set += weekDays[nameIdx];
-	set += Sat[Math.floor(Math.random() * Sat.length)];
-	set += Sun[Math.floor(Math.random() * Sun.length)];
+	set += Embolden(weekDays[nameIdx]) + "<br/>";
+	set += Embolden(Sat[Math.floor(Math.random() * Sat.length)]) + "<br/>";
+	set += Embolden(Sun[Math.floor(Math.random() * Sun.length)]);
+
+	console.info("GenerateHoursSet(): " + set);
 
 	return set;
+}
+
+/* Embolden()
+ * Purpose:	Return a string formatted so that everything before the comma is set to be bold (via HTML) and everything after is left alone
+ * Example		this, is a string
+			would be changed to:
+				<span style="font-weight:bold">this</span> is a string
+*/
+function Embolden(daysStr) {
+	var parts = daysStr.split(',');
+	var resultStr = '<span style="font-weight:bold">' + parts[0] + '</span>';
+	if (parts.length > 1) {
+		var newAry = parts.slice(1);
+		console.info("Embolden(): ary parts: " + parts.length + " new array: " + newAry.length + ", joined: " + newAry.join(' '));
+		resultStr += newAry.join(' ');
+	}
+	return resultStr;
 }

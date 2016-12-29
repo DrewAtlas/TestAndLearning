@@ -77,22 +77,28 @@
 	}
 
 	#TulStoreHoursTtl {
-		position:relative;
+		position: relative;
 		font-size: 36px;
+		margin-bottom: 20px;
+		margin-top: 20px;
 	}
 
-#Hours4Columns {
-	margin: 15px 100px 10px 150px;
-}
+	#Hours4Columns {
+		margin: 15px 100px 10px 150px;
+	}
+
+	.row {		/* Add to the bootstrap row definition - Put space inbetween the rows of store hours */
+		margin: 0px 150px 20px 150px;
+	}
 
 	.TulHoursHdr {
 		color: rgb(120, 182, 51); /* Green text */
-		position:relative;
+		position: relative;
 		font-size: 21px;
 	}
 
 	.TulHoursTimes {
 		font-weight: normal;
-		position:relative;
+		position: relative;
 	}
 

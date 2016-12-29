@@ -30,9 +30,6 @@ $(function () {
 	// Fill description paragraph
 	$("#TulDescriptParagraph").html(FsDb_GetLorem(500));
 
-	var sd = GenerateBoeingBuildingName();
-	var ww = GenerateHoursSet();
-
 	FillInTullyStoreHours(top.cityName);
 });
 
@@ -53,59 +50,42 @@ function FillInTullyStoreHours(city)
 	// Get the objects from the stored jSon dataset for this city
 	var curCol = 0;
 	var maxCol = 4;
-	var hourBlocks = getCrap(city);
+	var hourBlocks = GetTullyStoreHoursForCity(city);
+	console.info("FillInTullyStoreHours(): Got " + hourBlocks.length + " hour sets");
 
-	var startRow = '<div class="row"><div class="col-md-3 ">';
-	var rowHtml = startRow;
-	for (var blk = 0; blk < hourBlocks.length; hourBlocks++) {
-		// The .header member contains the store title as it should appear on the column. Any needed line breaks <br/> are built in
-		if ( (blk % maxCol == 0) && (rowHtml.length > 0) )
-		{	// When the mod value is zero, we are starting a new row...
-			rowHtml += '</div>' + startRow;
-		}
+	var rowStart = '<div class="row">';
+	var rowEnd = '</div>';
+	var colStart = '<div class="col-md-3 ">';
+	var colEnd = '</div>';
+
+	var allHtml = "";
+	var rowHtml = rowStart;
+	var colHtml = "";
+
+	for (var blk = 0; blk < hourBlocks.length; blk++) {
+		// Each block contains the content of one column
+		colHtml = colStart;
 		// Stick the header on to this group of hours
-		rowHtml += '<div class="TulHoursHdr">' + hourBlocks[blk].hoursHeader + '</div>';
+		colHtml += '<div class="TulHoursHdr">' + hourBlocks[blk].hoursHeader + '</div>';
 		// The .hours member contains the rows times for that store. Any line breaks and bold treatment are built in already, so we just display it
-		rowHtml += '<div class="TulHoursTimes">' + hourBlocks[blk].hours + '</div>';
+		colHtml += '<div class="TulHoursTimes">' + hourBlocks[blk].hours + '</div>';
+		colHtml += colEnd;
+		// Add this column to the row
+		rowHtml += colHtml;
+		// Decide if it is time to start another row
+		if ((blk+1) % maxCol == 0)
+		{	// When the mod value is zero, we are starting a new row...
+			rowHtml += rowEnd;
+			allHtml += rowHtml;
+			rowHtml = rowStart;
+		}
 	}
-	// Close off the row div35
-	rowHtml += '</div>';
+	// Stick any remaining row items onto our output string
+	if (rowHtml.length > rowStart.length) {
+		allHtml += rowHtml + rowEnd;
+	}
 
 	// Insert the table of time blocks into the DOM
-	$("#JqFillInHours4Columns").html(rowHtml);
-}
-var maxHours = 20;
-// Create an array of hours objects
-function getCrap(city) {
-
-	var hourSets = [];
-	for (var hours = 0; hours < maxHours; hours++) {
-		hourSets[hours] = { hoursHeader: GenerateBoeingBuildingName(), hours: GenerateHoursSet() };
-	}
-
-	return hourSets;
-}
-
-var x = "[\n\t{\"hoursHeader\": \"Boeing 40-21\",\n\t\"hours\": \"<span style=\"font-weight:bold\">M-F:</span> 4am-7:30pm<br/>\n\t\t\t<span style=\"font-weight:bold\">M-F:</span> 4am-7:30pm<br/>\n\t\t\t<span style=\"font-weight:bold\">M-F:</span> 4am-7:30pm<br/>}\n\t{\"hoursHeader\": \"PaineField<br/>Boeing 40-21\",\n\t\"hours\": \"<span style=\"font-weight:bold\">M-F:</span> 4am-7:30pm<br/>\n\t\t\t<span style=\"font-weight:bold\">M-F:</span> 4am-7:30pm<br/>\n\t\t\t<span style=\"font-weight:bold\">M-F:</span> 4am-7:30pm<br/>}\n\t{\"hoursHeader\": \"PaineField<br/>Boeing 40-21\",\n\t\"hours\": \"<span style=\"font-weight:bold\">M-F:</span> 4am-7:30pm<br/>\n\t\t\t<span style=\"font-weight:bold\">M-F:</span> 4am-7:30pm<br/>\n\t\t\t<span style=\"font-weight:bold\">M-F:</span> 4am-7:30pm<br/>}\n]";
-
-var demoHourBlocks = 
-'[\
-	{"hoursHeader": "Boeing 40-21",\
-	"hours": "<span style="font-weight:bold">M-F:</span> 4am-7:30pm<br/>\
-			<span style="font-weight:bold">M-F:</span> 4am-7:30pm<br/>\
-			<span style="font-weight:bold">M-F:</span> 4am-7:30pm<br/>}\
-	{"hoursHeader": "PaineField<br/>Boeing 40-21",\
-	"hours": "<span style="font-weight:bold">M-F:</span> 4am-7:30pm<br/>\
-			<span style="font-weight:bold">M-F:</span> 4am-7:30pm<br/>\
-			<span style="font-weight:bold">M-F:</span> 4am-7:30pm<br/>}\
-	{"hoursHeader": "PaineField<br/>Boeing 40-21",\
-	"hours": "<span style="font-weight:bold">M-F:</span> 4am-7:30pm<br/>\
-			<span style="font-weight:bold">M-F:</span> 4am-7:30pm<br/>\
-			<span style="font-weight:bold">M-F:</span> 4am-7:30pm<br/>}\
-]';
-
-// Parse the above demos tring into a JS object
-function xGetTullyStoreHoursForCity(city) {
-	return JSON.parse(x);
+	$("#JqFillInHours4Columns").html(allHtml);
 }
 
