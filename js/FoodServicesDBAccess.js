@@ -99,8 +99,8 @@ function GetRandomPieceOfText(theText, size) {
 	return ret;
 }
 
-// Create an array of hours objects
-function GetTullyStoreHoursForCity(city) {
+// Create an array of hours objects for Avenue C store
+function GetAveCStoreHoursForCity(city) {
 	var maxHours = 3 + Math.floor(Math.random() * 15);
 	var hourSets = new Array(maxHours);
 	for (var hr = 0; hr < maxHours; hr++) {
@@ -111,50 +111,17 @@ function GetTullyStoreHoursForCity(city) {
 	return hourSets;
 }
 
-var x = "[\n\t{\"hoursHeader\": \"Boeing 40-21\",\n\t\"hours\": \"<span style=\"font-weight:bold\">M-F:</span> 4am-7:30pm<br/>\n\t\t\t<span style=\"font-weight:bold\">M-F:</span> 4am-7:30pm<br/>\n\t\t\t<span style=\"font-weight:bold\">M-F:</span> 4am-7:30pm<br/>}\n\t{\"hoursHeader\": \"PaineField<br/>Boeing 40-21\",\n\t\"hours\": \"<span style=\"font-weight:bold\">M-F:</span> 4am-7:30pm<br/>\n\t\t\t<span style=\"font-weight:bold\">M-F:</span> 4am-7:30pm<br/>\n\t\t\t<span style=\"font-weight:bold\">M-F:</span> 4am-7:30pm<br/>}\n\t{\"hoursHeader\": \"PaineField<br/>Boeing 40-21\",\n\t\"hours\": \"<span style=\"font-weight:bold\">M-F:</span> 4am-7:30pm<br/>\n\t\t\t<span style=\"font-weight:bold\">M-F:</span> 4am-7:30pm<br/>\n\t\t\t<span style=\"font-weight:bold\">M-F:</span> 4am-7:30pm<br/>}\n]";
-
-var demoHourBlocks =
-'[\
-	{"hoursHeader": "Boeing 40-21",\
-	"hours": "<span style="font-weight:bold">M-F:</span> 4am-7:30pm<br/>\
-			<span style="font-weight:bold">M-F:</span> 4am-7:30pm<br/>\
-			<span style="font-weight:bold">M-F:</span> 4am-7:30pm<br/>}\
-	{"hoursHeader": "PaineField<br/>Boeing 40-21",\
-	"hours": "<span style="font-weight:bold">M-F:</span> 4am-7:30pm<br/>\
-			<span style="font-weight:bold">M-F:</span> 4am-7:30pm<br/>\
-			<span style="font-weight:bold">M-F:</span> 4am-7:30pm<br/>}\
-	{"hoursHeader": "PaineField<br/>Boeing 40-21",\
-	"hours": "<span style="font-weight:bold">M-F:</span> 4am-7:30pm<br/>\
-			<span style="font-weight:bold">M-F:</span> 4am-7:30pm<br/>\
-			<span style="font-weight:bold">M-F:</span> 4am-7:30pm<br/>}\
-]';
-
-// Parse the above demos tring into a JS object
-function xGetTullyStoreHoursForCity(city) {
-	return JSON.parse(x);
-}
-
-//====================  Functions to return store hours for Tullys ===================
-var maxHours = 20;
-// Create an array of hours objects
-/*
+// Create an array of hours objects for Tullys Stores in this city
 function GetTullyStoreHoursForCity(city) {
-
-	var hourSets = [];
-	for (var hours = 0; hours < maxHours; hours++) {
-		hourSets[hours] = { hoursHeader: GenerateBoeingBuildingName(), hours: GenerateHoursSet() };
+	var maxHours = 3 + Math.floor(Math.random() * 15);
+	var hourSets = new Array(maxHours);
+	for (var hr = 0; hr < maxHours; hr++) {
+		hourSets[hr] = { hoursHeader: GenerateBoeingBuildingName(), hours: GenerateHoursSet() };
+		console.info("Set for " + hr + " is [ " + hourSets[hr].hoursHeader + ", " + hourSets[hr].hours + "]");
 	}
-
+	console.info("Created " + hourSets.length + " hour sets");
 	return hourSets;
 }
-*/
-/* Create something like this
-"<span style="font-weight:bold">M-F:</span> 4am-7:30pm<br/>\
-			<span style="font-weight:bold">M-F:</span> 4am-7:30pm<br/>\
-			<span style="font-weight:bold">M-F:</span> 4am-7:30pm
-
-	For linebreaks: ;	// Use 15ch max on a line
-*/
 
 var gMaxTitleLen = 15;		// Desired max length for a store title
 

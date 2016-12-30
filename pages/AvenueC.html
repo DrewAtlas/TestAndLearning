@@ -1,58 +1,58 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-	<title>Everett Page Demo</title>
-
-	<!-- Bootstrap Responsive meta tag -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<title>Avenue C Groceries</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="../Scripts/jquery-3.1.1.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <!-- My own libraries and styles -->
+	<!-- My own libraries and styles -->
 	<script src="../js/SetupProjGlobals.js"></script>
-    <script src="../js/CommonFuncs.js"></script>
+	<script src="../js/CommonFuncs.js"></script>
 	<script src="../js/Parallax.js"></script>
 	<script src="../js/FoodServicesDBAccess.js"></script>
-	<script src="../js/pg1_Scripts.js"></script>
-	<script src="../js/dcpmSection.js"></script>
-	
-	<link rel="stylesheet" href="../css/Everett.css">
-	<link rel="stylesheet" href="../css/Pg1_Sections_01.css">
+	<script src="../js/CommonSectionGenerator.js"></script>
+	<script src="../js/pgAveC_Script.js"></script>
+
+	<link rel="stylesheet" href="../css/CommonSections.css">
+	<link rel="stylesheet" href="../css/pgAveC_Style.css">
 
 	<!-- Set all global variables here - each on in its own meta line -->
 	<!-- Set the offset for the hero background so the parallax places it correctly -->
-	<meta name="parallaxYOffset" content="0" />
-
+	<meta name="parallaxYOffset" content="-100" />
 </head>
+
 
 <body>
 	<!-- JQ to fill in the header -->
-	<div id="JqFill_aveCHdr"></div>
+	<div id="JqFill_AveCHdr"></div>
 	<!-- JQ to fill in the Announcements -->
-	<div id="JqFill_aveCAnnounce"></div>
+	<div id="JqFill_AveCAnnounce"></div>
 
-	<!-- Begin aveC Hero/Parallax -->
-	<div class="aveCframe parallax aveCImg">
-		<div class="aveCLogo"><img src="../img/aveCsLogo.png" /></div>
+	<!-- Begin AveC Hero/Parallax -->
+	<div class="AveCframe parallax AveCImg">
+		<div class="AveCLogo"><img src="../img/AvenueCLogo.png" /></div>
 	</div>
 	<!-- End Hero/Parallax -->
-	<!-- Begin aveCs Description -->
-	<div class="">
-
+	<!-- Begin AveCs Description -->
+	<div id="AveCDescriptSection" class="fsSection">
+		<div id="AveCDescriptTtl" class="AveCIndent">Avenue C</div>
+		<div id="AveCDescriptsubHdr" class="AveCIndent">Some place to get a buncha foods</div>
+		<div id="AveCDescriptParagraph" class="AveCIndent">Fill in with Lorem</div>
+		<div id="AveCDescriptSignUp" class="AveCIndent">Sign Up</div>
+		<div id="AveCDescriptFAQs" class="AveCIndent">FAQs</div>
 	</div>
-	<!-- End aveCs Description -->
-	<!-- Begin aveCStoreHours -->
-	<div class="">
 
+	<!-- Begin AveCStoreHours -->
+	<div id="AveCStoreHoursSection" class="fsSection">
+		<div id="AveCStoreHoursTtl" class="AveCIndent">Locations</div>
+		<div id="JqFillInHours4Columns"></div>
 	</div>
-	<!-- End aveCStoreHours -->
-
 	<!-- JQ to fill in the credit section -->
 	<div id="JqFill_credit"></div>
-
 	<!-- JQ to fill in the Footer -->
-	<div id="JqFill_aveCFooter"></div>
+	<div id="JqFill_AveCFooter"></div>
 </body>
 
 </html>

@@ -1,0 +1,122 @@
+﻿	.AveCLogo {				/* AvenueC Logo on top of hero, scrolls with page */
+		position:relative;
+		width:  779px;
+		height: 180px;
+		margin: auto;
+		top: 155px;
+	}
+
+	.AveCframe {
+		background-color: transparent;
+		background-repeat:no-repeat;
+		position:relative;
+		width:  1280px;		/* w/o this width specified, it didn't have one */
+		height: 475px;
+	}
+
+	.AveCImg {
+		position:relative;
+		top: -45px;
+		background-image:  url("../img/AveCHero.jpg");
+	}
+
+	.AveCIndent {			/* Use this class in addition to ID for all text */
+		left: 150px;
+	}
+
+	#AveCDescriptSection { /* Note we're also getting settings from common .fsSection */
+		background-color: white;
+		color: rgb(90, 103, 113); /* not-quite-black text color */
+		font-size: 16px;
+		line-height: 2;
+		text-align: left;
+		z-index: 110;
+		font-weight: bold;
+		bottom: 40px;	/* Make room for the view map button since it by itself doesn't increase the div height */
+	}
+
+	#AveCDescriptTtl {
+		position: relative;
+		top: 15px;
+		font-size: 36px;
+	}
+
+	#AveCDescriptsubHdr {
+		position: relative;
+		top: 10px;
+	}
+
+	#AveCDescriptParagraph {
+		position: relative;
+		top: 10px;
+		font-weight: normal;
+	}
+
+	#AveCDescriptSignUp {
+		color: white;
+		background-color: rgb(120, 182, 51); /* Green button bkgnd */
+		border-radius: 5px;
+		position: relative;
+		display: inline-block;
+		top: 20px;
+		bottom: 15px;
+		width: 137px;
+		height: 36px;
+		padding-top: 4px; /* This makes the text center in the box */
+		text-align: center;
+		clear: both;
+	}
+
+	#AveCDescriptFAQs {
+		color: white;
+		background-color: rgb(120, 182, 51); /* Green button bkgnd */
+		border-radius: 5px;
+		position: relative;
+		display: inline-block;
+		top: 20px;
+		bottom: 15px;
+		width: 137px;
+		height: 36px;
+		margin-left: 20px;
+		padding-top: 4px; /* This makes the text center in the box */
+		text-align: center;
+		clear: both;
+	}
+
+	#AveCStoreHoursSection { /* Note we're also getting settings from common .fsSection */
+		color: rgb(95, 106, 114); /* Not quite black text color */
+		background-color: rgb(246, 246, 246); /* light grey background */
+		font-size: 16px;
+		line-height: 1.2;
+		text-align: left;
+		z-index: 110;
+		font-weight: bold;
+		padding-top: 15px;		/* Adds spacing to the top that includes the background, so it is colored right */
+	}
+
+	#AveCStoreHoursTtl {
+		position: relative;
+		font-size: 36px;
+		margin-bottom: 20px;
+		margin-top: 20px;
+	}
+
+	#Hours4Columns {
+		margin: 15px 100px 10px 150px;
+	}
+
+	.row {		/* Add to the bootstrap row definition - Put space inbetween the rows of store hours */
+		margin: 0px 150px 20px 150px;
+	}
+
+	.AveCHoursHdr {
+		color: rgb(120, 182, 51); /* Green text */
+		position: relative;
+		font-size: 21px;
+	}
+
+	.AveCHoursTimes {
+		font-weight: normal;
+		position: relative;
+	}
+
