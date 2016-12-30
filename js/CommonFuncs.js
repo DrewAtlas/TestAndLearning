@@ -28,6 +28,34 @@ function getCookie(cname) {
     return "";
 }
 
+/* CalcHeightofDiv()
+ * Purpose:	Find the height of a <div> given the id of that section
+ * Inputs:	the jQuery selector to use to get at the root element whose height you want to measure
+ *				NOTE: This should be an id (e.g. #myId) and not a class because we want to identify a specific element
+ * Returns:	the pixel height of the indicated element
+ */
+function CalcHeightofDiv(divElem) {
+	var totalHeight = 0;
+
+	$(divElem).children().each(function () 
+	{
+		var elemHt = 0;
+		if ($(this).children().length > 0) {
+			elemHt = CalcHeightofDiv(this);
+			console.info("Found child ht: " + elemHt + "id: " + this);
+		}
+		else {
+			elemHt = $(this).outerHeight(true);
+		}
+
+		totalHeight += elemHt;
+
+		console.info("height of elem is " + elemHt + ", total is " + totalHeight);
+	});
+
+	return totalHeight; 
+}
+
 /* SetOnlyTextOnButton()
     Purpose:    If you have an element that has text that you want to replace, but there are more child elements
                 after your text within the tag you're changing, you can't just use @#xxx.text("newtext") on that

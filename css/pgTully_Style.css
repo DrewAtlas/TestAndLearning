@@ -74,6 +74,7 @@
 		text-align: left;
 		z-index: 110;
 		font-weight: bold;
+		padding-top: 15px;		/* Adds spacing to the top that includes the background, so it is colored right */
 	}
 
 	#TulStoreHoursTtl {

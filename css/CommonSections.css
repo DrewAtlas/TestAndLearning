@@ -155,7 +155,6 @@ div#announceViewMore {
 
 /* Creditcard Section */
 	#ccBkgnd {
-		height: 170px;
 		color: rgb(94,106,114);
 		background-color: white;
 	}
@@ -190,7 +189,6 @@ div#announceViewMore {
 	the photoshop CSS have already taken that into account */
 #footerBkgnd {
     position: relative;
-    /* top: 600px; */
     width: 1280px;
     height: 261px;
     left: 0px;

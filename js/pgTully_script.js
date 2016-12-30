@@ -3,13 +3,8 @@
 	Purpose:	Contains the setup script and utility functions to run the Tully page
 	Author:		Drew Topel
 	Date:		Dec 27, 2016
-	Updated:	Dec 27, 2016
+	Updated:	Dec 29, 2016
    */
-
-/* Note: I'll have to make a Header/nav bar and a footer script - or maybe just anything
-* that is one of teh secondary page common sections so that those secetions are all done
-* with the same code
-*/
 
 $(function () {
 	// Generate the sections of the page that we can
@@ -31,6 +26,10 @@ $(function () {
 	$("#TulDescriptParagraph").html(FsDb_GetLorem(500));
 
 	FillInTullyStoreHours(top.cityName);
+
+	// Because the browser doesn't know the real height of this element, fill it in
+	var realHt = CalcHeightofDiv("#JqFill_credit");
+	$("#JqFill_credit").css('height', realHt + 20);
 });
 
 // Create the HTML that shows the hours for all the Tullys stores in the passed city
