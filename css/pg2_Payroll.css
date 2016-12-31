@@ -1,0 +1,27 @@
+﻿
+	.PayrollIndent {			/* Use this class in addition to ID for all text */
+		left: 150px;
+	}
+
+	#PayrollDescriptSection { /* Note we're also getting settings from common .fsSection */
+		background-color: white;
+		color: rgb(90, 103, 113); /* not-quite-black text color */
+		font-size: 16px;
+		line-height: 2;
+		text-align: left;
+		z-index: 110;
+		font-weight: bold;
+		bottom: 40px;	/* Make room for the view map button since it by itself doesn't increase the div height */
+	}
+
+	#PayrollDescriptTtl {
+		position: relative;
+		top: 15px;
+		font-size: 36px;
+	}
+
+	#PayrollDescriptParagraph {
+		position: relative;
+		top: 10px;
+		font-weight: normal;
+	}

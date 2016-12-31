@@ -120,8 +120,8 @@ function SetupDiningColumn(city) {
 	var otherButs = "";
 	// Fill in the HTML to other buts
 	otherButs = '<div>';
-	otherButs += AddDcmpBut("Tully's Coffee", "Tullys.html");
-	otherButs += AddDcmpBut("Avenue C", "AvenueC.html");
+	otherButs += AddDcmpBut("Tully's Coffee", "pg2_Tullys.html");
+	otherButs += AddDcmpBut("Avenue C", "pg2_AveC.html");
 	otherButs += '</div>';
 	$("#JqFillDiningCol").html(onePanelHtml + otherButs);
 }
@@ -142,7 +142,7 @@ function SetupCateringColumn(city) {
 	}
 	onePanelHtml += '</div>';		// Required close of div from AccordionPanelHeader
 	onePanelHtml += '<div>';
-	onePanelHtml += AddDcmpBut("Order Coffee Service", "CoffeeService.html");
+	onePanelHtml += AddDcmpBut("Order Coffee Service", "pg2_CoffeeService.html");
 	onePanelHtml += '</div>';
 	$("#JqFillCateringCol").html(onePanelHtml);
 	console.log("SetupCateringColumn Exit:" + city);
@@ -152,7 +152,7 @@ function SetupCateringColumn(city) {
 function SetupPromosColumn(city) {
 	// Temp labels for the accordion buttons we want to make (normally this comes from the DB or Json files)
 	console.log("SetupPromosColumn Entry:" + city);
-	var colHtml = AddDcmpBut("View Monthly Promos", "Promos.html");
+	var colHtml = AddDcmpBut("View Monthly Promos", "pg2_Promos.html");
 
 	$("#JqFillPromosCol").html(colHtml);
 	console.log("SetupPromosColumn Exit:" + city);
